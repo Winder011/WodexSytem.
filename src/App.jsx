@@ -14,7 +14,7 @@ const solutions = [
 ]
 
 const process = [
-    ['01', 'Entendemos', 'Escuchamos la operación, las personas y la fricción que hay que resolver.'],
+    ['01', 'Entendemos', 'Escuchamos la operación, las personas y la fricció que hay que resolver.'],
     ['02', 'Definimos', 'Traducimos el reto en una solución clara, con prioridades compartidas.'],
     ['03', 'Construimos', 'Desarrollamos con foco en que la herramienta funcione en el día a día.'],
     ['04', 'Evolucionamos', 'La solución acompaña a tu operación cuando aparecen nuevas necesidades.'],
@@ -32,7 +32,7 @@ export default function App() {
                 <div className="shell hero-grid">
                     <div className="hero-copy reveal">
                         <p className="hero-label">Wodex System · Costa Rica</p>
-                        <h1 id="hero-title">Impulsado por ideas <em>genuinas.</em></h1>
+                        <h1 id="hero-title">Ingeniería de alto rendimiento para operaciones <em>que no se detienen.</em></h1>
                         <p className="hero-lede">Soluciones a tu medida.</p>
                         <p className="hero-description">Desarrollamos software, automatizamos procesos e integramos inteligencia artificial para convertir necesidades reales en soluciones digitales.</p>
                         <div className="hero-actions">
@@ -47,20 +47,20 @@ export default function App() {
                         <i className="connector connector-one" /><i className="connector connector-two" />
                     </div>
                 </div>
-                <div className="shell hero-footer"><span>Primero entendemos. Después construimos.</span><span>Disponible en Costa Rica</span></div>
+                <div className="shell hero-footer"><span>Primero Analizamos. Después construimos.</span><span></span></div>
             </section>
 
             <section id="soluciones" className="section services" aria-labelledby="services-title">
                 <div className="shell section-heading">
                     <div><p className="section-kicker">SOLUCIONES</p><h2 id="services-title">Tecnología que responde a cómo trabaja <em>tu negocio.</em></h2></div>
-                    <p>Construimos tecnología alrededor de lo que tu negocio necesita, no alrededor de una plantilla o un catálogo de herramientas.</p>
+                    
                 </div>
                 <div className="shell service-list">{solutions.map(([title, text], index) => <article className="service-item" key={title}><span>{String(index + 1).padStart(2, '0')}</span><h3>{title}</h3><p>{text}</p><ArrowUpRight aria-hidden="true" /></article>)}</div>
             </section>
 
             <section className="section value-section" aria-labelledby="value-title"><div className="shell value-layout"><p className="section-kicker">Una herramienta debe liberar a tu equipo</p><h2 id="value-title">No solo creamos software.<br />Construimos herramientas que devuelven <em>tiempo</em>, <em>control</em> y <em>capacidad de crecimiento</em> a tu equipo.</h2></div></section>
 
-            <section id="proceso" className="section process" aria-labelledby="process-title"><div className="shell"><div className="section-heading process-heading"><div><p className="section-kicker">CÓMO TRABAJAMOS</p><h2 id="process-title">Una conversación bien llevada puede convertirse en una solución <em>duradera.</em></h2></div><p>No creemos en soluciones genéricas para problemas únicos. El proceso nos permite tomar buenas decisiones antes y durante la construcción.</p></div><ol className="process-list">{process.map(([number, title, text]) => <li key={number}><span>{number}</span><div><h3>{title}</h3><p>{text}</p></div></li>)}</ol></div></section>
+            <section id="proceso" className="section process" aria-labelledby="process-title"><div className="shell"><div className="section-heading process-heading"><div><p className="section-kicker">CÓMO TRABAJAMOS</p><h2 id="process-title">De una conversación a una solución que <em>evoluciona.</em></h2></div><p>No creemos en soluciones genéricas para problemas únicos. El proceso nos permite tomar buenas decisiones antes y durante la construcción.</p></div><ol className="process-list">{process.map(([number, title, text]) => <li key={number}><span>{number}</span><div><h3>{title}</h3><p>{text}</p></div></li>)}</ol></div></section>
 
             <section className="section statement" aria-labelledby="statement-title"><div className="shell statement-layout"><p className="section-kicker">Nuestra filosofía</p><div><h2 id="statement-title">Tu negocio no debería adaptarse al software.</h2><p>El software debe adaptarse a tu negocio.</p></div><div className="statement-mark"><Sparkles aria-hidden="true" /><span>Procesos propios merecen soluciones propias.</span></div></div></section>
 
