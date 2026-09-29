@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { ArrowDownRight, ArrowRight, ArrowUpRight, Check, Lightbulb, Network, Sparkles } from 'lucide-react'
+import { ArrowDownRight, ArrowRight, ArrowUpRight, Check, Sparkles } from 'lucide-react'
 import Header from './components/Header'
 import Brand from './components/Brand'
 import Contact from './components/Contact'
@@ -31,8 +31,7 @@ export default function App() {
                 <div className="hero-glow" aria-hidden="true" />
                 <div className="shell hero-grid">
                     <div className="hero-copy reveal">
-                        <p className="hero-label">Wodex System · Costa Rica</p>
-                        <h1 id="hero-title">Ingeniería de alto rendimiento para operaciones <em>que no se detienen.</em></h1>
+                        <h1 id="hero-title">Ingeniería desde Costa Rica <em>con estándar e impacto global.</em></h1>
                         <p className="hero-lede">Soluciones a tu medida.</p>
                         <p className="hero-description">Desarrollamos software, automatizamos procesos e integramos inteligencia artificial para convertir necesidades reales en soluciones digitales.</p>
                         <div className="hero-actions">
@@ -40,14 +39,8 @@ export default function App() {
                             <a className="button button-quiet" href="#soluciones">Explorar soluciones <ArrowDownRight /></a>
                         </div>
                     </div>
-                    <div className="hero-architecture reveal reveal-delay" aria-label="De una necesidad a una solución operativa">
-                        <div className="architecture-copy architecture-copy-top"><Lightbulb /><span>Necesidad real</span><strong>Entender antes de construir.</strong></div>
-                        <div className="architecture-core"><img src="/img/_logo.png" alt="" /><span>Wodex System</span><strong>Ingeniería aplicada</strong></div>
-                        <div className="architecture-copy architecture-copy-bottom"><Network /><span>Solución operativa</span><strong>Herramientas hechas para el trabajo real.</strong></div>
-                        <i className="connector connector-one" /><i className="connector connector-two" />
-                    </div>
                 </div>
-                <div className="shell hero-footer"><span>Primero Analizamos. Después construimos.</span><span></span></div>
+                <div className="shell hero-footer"><span>Wodex Costa Rica</span><span></span></div>
             </section>
 
             <section id="soluciones" className="section services" aria-labelledby="services-title">
@@ -68,7 +61,11 @@ export default function App() {
 
             <section id="contacto" className="section final-cta" aria-labelledby="contact-title"><div className="shell"><p className="section-kicker">¿Tienes una idea?</p><h2 id="contact-title">Cuéntanos qué quieres <em>construir.</em></h2><p>Empecemos por el problema, el proceso o la oportunidad que quieres mejorar.</p><button className="button button-primary" onClick={openContact}>Iniciar proyecto <ArrowRight /></button></div></section>
         </main>
-        <footer className="shell footer"><Brand /><div className="footer-links"><a href="#soluciones">Soluciones</a><a href="#proceso">Cómo trabajamos</a><a href="#experiencia">Experiencia</a><button onClick={openContact}>Contacto</button></div><p>© {new Date().getFullYear()} Wodex System · Costa Rica</p></footer>
+        <footer className="shell footer"><Brand /><div className="footer-links"><a href="#soluciones">Soluciones</a><a href="#proceso">Cómo trabajamos</a><a href="#experiencia">Experiencia</a><button onClick={openContact}>Contacto</button><a className="instagram-link" href="https://www.instagram.com/wodexsystem?stkn=MWhkYjN3dmhydw==" target="_blank" rel="noopener noreferrer" aria-label="Instagram de Wodex System"><InstagramIcon /></a></div><p>© {new Date().getFullYear()} Wodex System · Costa Rica</p></footer>
         <Contact open={contactOpen} onClose={() => setContactOpen(false)} />
     </div>
+}
+
+function InstagramIcon() {
+    return <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" /><circle cx="12" cy="12" r="4" /><circle cx="17.5" cy="6.5" r=".8" fill="currentColor" stroke="none" /></svg>
 }
