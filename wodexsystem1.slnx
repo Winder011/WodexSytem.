@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="wodexsystem1.esproj">
+    <Build />
+    <Deploy />
+  </Project>
+</Solution>

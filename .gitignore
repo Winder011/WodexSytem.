@@ -22,3 +22,9 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Visual Studio / Archivos temporales
+.vs/
+obj/
+bin/
+*.esproj.user
