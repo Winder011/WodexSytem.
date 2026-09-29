@@ -1,1 +1,1 @@
-export default function Brand({ compact = false }) { return <a href="#inicio" className="brand" aria-label="Wodex Systems, volver al inicio"><img src="/img/_logo.png" alt="Logo Wodex" /><span className={compact ? 'sr-only' : ''}>Wodex Systems</span></a> }
+export default function Brand() { return <a href="#inicio" className="brand" aria-label="Wodex System, volver al inicio"><img src="/img/_logo.png" alt="Logo Wodex System" /><span>Wodex System</span></a> }

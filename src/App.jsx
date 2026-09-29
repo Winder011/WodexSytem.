@@ -1,73 +1,74 @@
 import { useState } from 'react'
+import { ArrowDownRight, ArrowRight, ArrowUpRight, Check, Lightbulb, Network, Sparkles } from 'lucide-react'
 import Header from './components/Header'
 import Brand from './components/Brand'
-
 import Contact from './components/Contact'
 
-const services = [
-    ['01', 'Software a medida', 'Sistemas y aplicaciones diseñados alrededor de los procesos reales de tu empresa.'],
-    ['02', 'Automatización', 'Reducimos tareas repetitivas, tiempos perdidos y errores que frenan la operación.'],
-    ['03', 'Inteligencia Artificial', 'Implementamos IA práctica donde puede aportar valor al trabajo diario.'],
-    ['04', 'Integraciones', 'Conectamos plataformas, APIs, CRM, WhatsApp, bases de datos y equipos.'],
-    ['05', 'Dashboards & Data', 'Convertimos información operativa en claridad para decidir con confianza.'],
-    ['06', 'Infraestructura digital', 'Preparamos soluciones sólidas, seguras y listas para acompañar tu crecimiento.'],
+const solutions = [
+    ['Software a medida', 'Construimos sistemas alrededor de los procesos reales de tu empresa.'],
+    ['Automatización', 'Eliminamos tareas repetitivas para que tu equipo pueda enfocarse en lo que realmente importa.'],
+    ['Inteligencia Artificial', 'Integramos IA donde puede aportar velocidad, información y eficiencia.'],
+    ['Integraciones', 'Conectamos las herramientas que tu empresa ya utiliza para que la operación fluya.'],
+    ['Dashboards', 'Convertimos datos dispersos en información que puedes entender y utilizar.'],
+    ['Sistemas empresariales', 'Ordenamos operaciones complejas en herramientas claras, útiles y preparadas para crecer.'],
 ]
 
 const process = [
-    ['01', 'Entendemos', 'Conocemos tu negocio, el problema y lo que realmente debe cambiar.'],
-    ['02', 'Diseñamos', 'Definimos una solución clara antes de empezar a construir.'],
-    ['03', 'Construimos', 'Convertimos la estrategia en un sistema, automatización o integración real.'],
-    ['04', 'Evolucionamos', 'Medimos, mejoramos y escalamos cuando la operación lo necesita.'],
+    ['01', 'Entendemos', 'Escuchamos la operación, las personas y la fricción que hay que resolver.'],
+    ['02', 'Definimos', 'Traducimos el reto en una solución clara, con prioridades compartidas.'],
+    ['03', 'Construimos', 'Desarrollamos con foco en que la herramienta funcione en el día a día.'],
+    ['04', 'Evolucionamos', 'La solución acompaña a tu operación cuando aparecen nuevas necesidades.'],
 ]
 
 export default function App() {
     const [contactOpen, setContactOpen] = useState(false)
     const openContact = () => setContactOpen(true)
-    const closeContact = () => setContactOpen(false)
 
     return <div className="site-shell">
         <Header onContact={openContact} />
         <main>
             <section id="inicio" className="hero" aria-labelledby="hero-title">
-                <div className="hero-orbit" aria-hidden="true" />
+                <div className="hero-glow" aria-hidden="true" />
                 <div className="shell hero-grid">
                     <div className="hero-copy reveal">
-                        <p className="eyebrow"><span />Wodex Systems / Digital Engineering</p>
+                        <p className="hero-label">Wodex System · Costa Rica</p>
                         <h1 id="hero-title">Impulsado por ideas <em>genuinas.</em></h1>
-                        <p className="hero-lede">Construimos soluciones tecnológicas a la medida de tu negocio.</p>
-                        <p className="hero-description">Desarrollamos software, automatizamos procesos e integramos inteligencia artificial para convertir necesidades reales en soluciones digitales que funcionan.</p>
+                        <p className="hero-lede">Soluciones a tu medida.</p>
+                        <p className="hero-description">Desarrollamos software, automatizamos procesos e integramos inteligencia artificial para convertir necesidades reales en soluciones digitales.</p>
                         <div className="hero-actions">
-                            <button className="button button-primary" onClick={openContact}>Cuéntanos tu idea <span aria-hidden="true">↗</span></button>
-                            <a className="button button-quiet" href="#soluciones">Explorar soluciones <span aria-hidden="true">↓</span></a>
+                            <button className="button button-primary" onClick={openContact}>Cuéntanos tu idea <ArrowUpRight /></button>
+                            <a className="button button-quiet" href="#soluciones">Explorar soluciones <ArrowDownRight /></a>
                         </div>
                     </div>
-                    <div className="hero-mark reveal reveal-delay" aria-label="Wodex: de una idea a una solución operativa">
-                        <div className="mark-line mark-line-a" /><div className="mark-line mark-line-b" />
-                        <div className="mark-card mark-card-top"><small>INPUT</small><strong>Una idea</strong><span>Proceso · necesidad · oportunidad</span></div>
-                        <div className="mark-card mark-card-center"><img src="/img/_logo.png" alt="" /><small>WODEX</small><strong>Ingeniería aplicada</strong></div>
-                        <div className="mark-card mark-card-bottom"><small>OUTPUT</small><strong>Algo que funciona</strong><span>Sistema · automatización · control</span></div>
+                    <div className="hero-architecture reveal reveal-delay" aria-label="De una necesidad a una solución operativa">
+                        <div className="architecture-copy architecture-copy-top"><Lightbulb /><span>Necesidad real</span><strong>Entender antes de construir.</strong></div>
+                        <div className="architecture-core"><img src="/img/_logo.png" alt="" /><span>Wodex System</span><strong>Ingeniería aplicada</strong></div>
+                        <div className="architecture-copy architecture-copy-bottom"><Network /><span>Solución operativa</span><strong>Herramientas hechas para el trabajo real.</strong></div>
+                        <i className="connector connector-one" /><i className="connector connector-two" />
                     </div>
                 </div>
-                <div className="shell hero-footer"><span>Ideas genuinas. Soluciones a la medida.</span><span>San José, Costa Rica <i /></span></div>
+                <div className="shell hero-footer"><span>Primero entendemos. Después construimos.</span><span>Disponible en Costa Rica</span></div>
             </section>
 
             <section id="soluciones" className="section services" aria-labelledby="services-title">
-                <div className="shell section-heading"><p className="eyebrow"><span />Lo que hacemos</p><h2 id="services-title">Convertimos problemas <em>en sistemas.</em></h2><p>No vendemos tecnología por tecnología. Construimos herramientas que devuelven tiempo, control y capacidad de crecimiento a tu equipo.</p></div>
-                <div className="shell service-list">{services.map(([number, title, text]) => <article className="service-item" key={number}><span>{number}</span><h3>{title}</h3><p>{text}</p><b aria-hidden="true">↗</b></article>)}</div>
+                <div className="shell section-heading">
+                    <div><p className="section-kicker">SOLUCIONES</p><h2 id="services-title">Tecnología que responde a cómo trabaja <em>tu negocio.</em></h2></div>
+                    <p>Construimos tecnología alrededor de lo que tu negocio necesita, no alrededor de una plantilla o un catálogo de herramientas.</p>
+                </div>
+                <div className="shell service-list">{solutions.map(([title, text], index) => <article className="service-item" key={title}><span>{String(index + 1).padStart(2, '0')}</span><h3>{title}</h3><p>{text}</p><ArrowUpRight aria-hidden="true" /></article>)}</div>
             </section>
 
-            <section className="section principle" aria-labelledby="principle-title"><div className="shell principle-layout"><p className="eyebrow"><span />La diferencia Wodex</p><div><h2 id="principle-title">Tu negocio no debería adaptarse al software.</h2><p className="principle-statement">La tecnología debe adaptarse a tu negocio.</p></div><div className="principle-note"><p><strong>Primero entendemos. Después construimos.</strong></p><p>Cada empresa opera distinto. Por eso no creemos en soluciones de catálogo para problemas únicos: escuchamos el proceso, encontramos la fricción y diseñamos desde ahí.</p></div></div></section>
+            <section className="section value-section" aria-labelledby="value-title"><div className="shell value-layout"><p className="section-kicker">Una herramienta debe liberar a tu equipo</p><h2 id="value-title">No solo creamos software.<br />Construimos herramientas que devuelven <em>tiempo</em>, <em>control</em> y <em>capacidad de crecimiento</em> a tu equipo.</h2></div></section>
 
-            <section id="asset-hub" className="section asset" aria-labelledby="asset-title"><div className="shell asset-layout"><div className="asset-copy"><p className="eyebrow"><span />Producto Wodex / Caso real</p><p className="asset-kicker">Una muestra de lo que podemos construir.</p><h2 id="asset-title">Asset <em>Hub.</em></h2><p className="asset-tagline">Control inteligente de tus activos tecnológicos.</p><p>Una plataforma propia para centralizar, controlar y visualizar el estado de los activos tecnológicos de una organización: equipos, movimientos, mantenimientos, ubicaciones, responsables e indicadores operativos.</p><a className="text-link" href="#contacto" onClick={(e) => { e.preventDefault(); openContact() }}>Conocer el producto <span>↗</span></a></div><div className="asset-screen" aria-label="Vista conceptual del dashboard de Asset Hub"><div className="screen-top"><span>ASSET HUB</span><i /><i /><i /></div><div className="screen-body"><aside><b>AH</b><span /><span /><span /><span /></aside><div className="screen-main"><div className="screen-title"><div><small>Resumen operativo</small><strong>Activos tecnológicos</strong></div><button>+ Registrar activo</button></div><div className="metric-row"><Metric value="1,248" label="Activos registrados" /><Metric value="91%" label="En operación" /><Metric value="18" label="Mantenimientos" /></div><div className="chart"><div className="chart-label">Movimientos de activos</div><div className="chart-bars"><i /><i /><i /><i /><i /><i /><i /></div></div><div className="asset-table"><span>Equipo</span><span>Ubicación</span><span>Estado</span><b>MacBook Pro 14</b><b>San José</b><em>Operativo</em><b>Monitor Dell 27</b><b>Heredia</b><em>Asignado</em></div></div></div></div></div></section>
+            <section id="proceso" className="section process" aria-labelledby="process-title"><div className="shell"><div className="section-heading process-heading"><div><p className="section-kicker">CÓMO TRABAJAMOS</p><h2 id="process-title">Una conversación bien llevada puede convertirse en una solución <em>duradera.</em></h2></div><p>No creemos en soluciones genéricas para problemas únicos. El proceso nos permite tomar buenas decisiones antes y durante la construcción.</p></div><ol className="process-list">{process.map(([number, title, text]) => <li key={number}><span>{number}</span><div><h3>{title}</h3><p>{text}</p></div></li>)}</ol></div></section>
 
-            <section id="proceso" className="section process" aria-labelledby="process-title"><div className="shell"><div className="section-heading process-heading"><p className="eyebrow"><span />Cómo lo hacemos</p><h2 id="process-title">De una conversación a una solución que <em>evoluciona.</em></h2></div><ol className="process-list">{process.map(([number, title, text]) => <li key={number}><span>{number}</span><div><h3>{title}</h3><p>{text}</p></div></li>)}</ol></div></section>
+            <section className="section statement" aria-labelledby="statement-title"><div className="shell statement-layout"><p className="section-kicker">Nuestra filosofía</p><div><h2 id="statement-title">Tu negocio no debería adaptarse al software.</h2><p>El software debe adaptarse a tu negocio.</p></div><div className="statement-mark"><Sparkles aria-hidden="true" /><span>Procesos propios merecen soluciones propias.</span></div></div></section>
 
-            <section className="idea-section"><div className="shell idea-layout"><p className="eyebrow"><span />Tu idea puede ser la siguiente</p><div><h2>¿Tienes una idea?</h2><p>No importa si está en una libreta, una conversación o en un proceso que todavía haces manualmente. Podemos convertirla en una solución digital real.</p></div><button className="button button-light" onClick={openContact}>Cuéntanos tu idea <span>↗</span></button></div></section>
+            <section id="experiencia" className="section trust" aria-labelledby="trust-title"><div className="shell trust-layout"><div><p className="section-kicker">CONFIANZA</p><h2 id="trust-title">Construimos para empresas <em>reales.</em></h2><p className="trust-intro">JSM Servicentros confía en Wodex System. Una relación real, construida sobre soluciones tecnológicas a la medida.</p></div><div className="client-proof"><div className="client-logo"><img src="/img/jsm.png" alt="JSM Servicentros" /></div><div><p className="client-status"><Check aria-hidden="true" /> Cliente Wodex</p><h3>JSM Servicentros</h3><p>Actualmente desarrollamos soluciones para optimizar el control tecnológico y operativo.</p></div></div></div><div className="shell evidence"><div><p className="section-kicker">EVIDENCIA DE DESARROLLO</p><h3>Asset Hub</h3></div><p>Una solución desarrollada por Wodex System para centralizar el control de activos tecnológicos, movimientos, mantenimiento, infraestructura e información operativa. Es una muestra de nuestra capacidad de construir herramientas internas a la medida.</p></div></section>
 
-            <section id="contacto" className="section final-cta" aria-labelledby="contact-title"><div className="shell"><p className="eyebrow"><span />Empecemos</p><h2 id="contact-title">Tu próximo sistema puede empezar con una <em>conversación.</em></h2><p>Cuéntanos qué quieres mejorar, automatizar o construir.</p><button className="button button-primary" onClick={openContact}>Empezar proyecto <span>→</span></button></div></section>
+            <section id="contacto" className="section final-cta" aria-labelledby="contact-title"><div className="shell"><p className="section-kicker">¿Tienes una idea?</p><h2 id="contact-title">Cuéntanos qué quieres <em>construir.</em></h2><p>Empecemos por el problema, el proceso o la oportunidad que quieres mejorar.</p><button className="button button-primary" onClick={openContact}>Iniciar proyecto <ArrowRight /></button></div></section>
         </main>
-        <footer className="shell footer"><Brand compact /><p>© {new Date().getFullYear()} Wodex Systems. Ideas genuinas, construidas para necesidades reales.</p><a href="https://instagram.com/wodexsystem" target="_blank" rel="noreferrer">Instagram ↗</a></footer>
-        <Contact open={contactOpen} onClose={closeContact} />
+        <footer className="shell footer"><Brand /><div className="footer-links"><a href="#soluciones">Soluciones</a><a href="#proceso">Cómo trabajamos</a><a href="#experiencia">Experiencia</a><button onClick={openContact}>Contacto</button></div><p>© {new Date().getFullYear()} Wodex System · Costa Rica</p></footer>
+        <Contact open={contactOpen} onClose={() => setContactOpen(false)} />
     </div>
 }
-function Metric({ value, label }) { return <div><strong>{value}</strong><span>{label}</span></div> }
