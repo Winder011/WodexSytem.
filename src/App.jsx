@@ -61,7 +61,7 @@ export default function App() {
 
             <section id="contacto" className="section final-cta" aria-labelledby="contact-title"><div className="shell"><p className="section-kicker">¿Tienes una idea?</p><h2 id="contact-title">Cuéntanos qué quieres <em>construir.</em></h2><p>Empecemos por el problema, el proceso o la oportunidad que quieres mejorar.</p><button className="button button-primary" onClick={openContact}>Iniciar proyecto <ArrowRight /></button></div></section>
         </main>
-        <footer className="shell footer"><Brand /><div className="footer-links"><a href="#soluciones">Soluciones</a><a href="#proceso">Cómo trabajamos</a><a href="#experiencia">Experiencia</a><button onClick={openContact}>Contacto</button><a className="instagram-link" href="https://www.instagram.com/wodexsystem?stkn=MWhkYjN3dmhydw==" target="_blank" rel="noopener noreferrer" aria-label="Instagram de Wodex System"><InstagramIcon /></a></div><p>© {new Date().getFullYear()} Wodex System · Costa Rica</p></footer>
+        <footer className="shell footer"><Brand /><div className="footer-links"><a href="#soluciones">Soluciones</a><a href="#proceso">Cómo trabajamos</a><a href="#experiencia">Experiencia</a><button onClick={openContact}>Contacto</button><a className="instagram-link" href="https://www.instagram.com/wodexsystem?stkn=MWhkYjN3dmhydw==" target="_blank" rel="noopener noreferrer" aria-label="Instagram de Wodex System"><InstagramIcon /></a></div><p>© {new Date().getFullYear()} Costa Rica</p></footer>
         <Contact open={contactOpen} onClose={() => setContactOpen(false)} />
     </div>
 }
