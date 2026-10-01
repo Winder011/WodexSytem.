@@ -387,182 +387,6 @@ html:not(.reveal-ready) .timeline__progress {
   font-size: var(--fs-sm);
 }
 
-/* Interfaz ilustrativa de Asset Hub */
-.app-mock {
-  display: grid;
-  grid-template-columns: 30% 1fr;
-  width: 100%;
-  max-width: 760px;
-  overflow: hidden;
-  border: var(--border-strong);
-  border-radius: var(--radius-lg);
-  background: #0b1222;
-  box-shadow: var(--shadow-lg);
-  font-size: 11px;
-  transition: transform 600ms var(--ease-out);
-}
-
-@media (hover: hover) and (pointer: fine) {
-  .showcase:hover .app-mock {
-    transform: perspective(1200px) rotateY(-4deg) rotateX(2deg) scale(1.02);
-  }
-}
-
-.app-mock svg {
-  width: 13px;
-  height: 13px;
-  flex: none;
-}
-
-.app-mock__side {
-  display: grid;
-  align-content: start;
-  gap: 4px;
-  padding: 14px 10px;
-  border-right: var(--border-subtle);
-  background: rgb(255 255 255 / 0.02);
-}
-
-.app-mock__side span {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 7px 8px;
-  border-radius: 7px;
-  color: var(--color-muted);
-}
-
-.app-mock__side .app-mock__brand {
-  margin-bottom: 8px;
-  color: var(--color-text);
-  font-weight: 600;
-}
-
-.app-mock__side .app-mock__brand svg {
-  color: var(--color-brand-bright);
-}
-
-.app-mock__side .is-active {
-  background: var(--color-brand-tint);
-  color: var(--color-text);
-}
-
-.app-mock__main {
-  display: grid;
-  gap: 12px;
-  padding: 14px;
-}
-
-.app-mock__top {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 8px;
-}
-
-.app-mock__top strong {
-  font-size: 13px;
-}
-
-.app-mock__search {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  padding: 5px 10px;
-  border: var(--border-subtle);
-  border-radius: var(--radius-pill);
-  color: var(--color-faint);
-}
-
-.app-mock__stats {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 8px;
-}
-
-.app-mock__stats div {
-  display: grid;
-  gap: 4px;
-  padding: 10px;
-  border: var(--border-subtle);
-  border-radius: 9px;
-  background: rgb(255 255 255 / 0.02);
-}
-
-.app-mock__stats small {
-  color: var(--color-faint);
-  font-size: 9px;
-}
-
-.app-mock__stats b {
-  font-size: 11px;
-  font-weight: 600;
-}
-
-.app-mock__stats i {
-  position: relative;
-  height: 4px;
-  margin-top: 4px;
-  border-radius: 4px;
-  background: rgb(157 180 224 / 0.12);
-}
-
-.app-mock__stats i::after {
-  position: absolute;
-  inset: 0 auto 0 0;
-  width: var(--w);
-  border-radius: inherit;
-  background: var(--gradient-brand);
-  content: '';
-}
-
-.app-mock__table {
-  display: grid;
-  border: var(--border-subtle);
-  border-radius: 9px;
-}
-
-.app-mock__row {
-  display: grid;
-  grid-template-columns: 22px 1fr auto;
-  align-items: center;
-  gap: 8px;
-  padding: 8px 10px;
-  color: var(--color-text-soft);
-}
-
-.app-mock__row + .app-mock__row {
-  border-top: var(--border-subtle);
-}
-
-.app-mock__thumb {
-  width: 22px;
-  height: 22px;
-  border-radius: 6px;
-  background: linear-gradient(135deg, #1e2c48, #15203a);
-}
-
-.app-mock__row em {
-  padding: 2px 8px;
-  border-radius: var(--radius-pill);
-  font-size: 9px;
-}
-
-.app-mock__row [data-tone='ok'] {
-  background: rgb(61 220 151 / 0.12);
-  color: #8ff0c4;
-}
-
-.app-mock__row [data-tone='warn'] {
-  background: rgb(245 184 75 / 0.12);
-  color: #f6cf86;
-}
-
-.app-mock__row [data-tone='info'] {
-  background: rgb(91 147 255 / 0.14);
-  color: #a9c6ff;
-}
-
 /* ================= CONTACTO ================= */
 .contact {
   isolation: isolate;
@@ -835,106 +659,152 @@ html:not(.reveal-ready) .timeline__progress {
   font-size: var(--fs-xs);
 }
 
-/* ================= PROYECTOS ================= */
-.showcase {
-  overflow: hidden;
-  border: var(--border);
-  border-radius: var(--radius-xl);
-  background: var(--color-bg-soft);
-}
-
-.showcase__stage {
+/* ================= CLIENTES WODEX ================= */
+/* Franja con fondo propio (azul algo más luminoso), líneas de luz arriba y abajo
+   y un halo discreto alrededor del logo. Sin tarjeta: el contenido respira. */
+.clients {
   position: relative;
   isolation: isolate;
-  display: grid;
-  place-items: center;
-  padding: clamp(1.5rem, 1rem + 4vw, 4.5rem);
+  padding-block: clamp(5rem, 4rem + 5vw, 8rem);
   overflow: hidden;
   background:
-    radial-gradient(70% 80% at 50% 0%, rgb(47 107 237 / 0.32), transparent 70%),
-    linear-gradient(160deg, #0f1a30, #0a101d);
+    radial-gradient(60% 120% at 50% 0%, rgb(47 107 237 / 0.16), transparent 70%),
+    linear-gradient(180deg, #0a1328 0%, #0b1530 50%, #0a1328 100%);
 }
 
-.showcase__stage::before {
+.clients::before,
+.clients::after {
+  position: absolute;
+  right: 0;
+  left: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgb(91 147 255 / 0.5) 30%,
+    rgb(63 200 236 / 0.7) 50%,
+    rgb(91 147 255 / 0.5) 70%,
+    transparent
+  );
+  content: '';
+}
+
+.clients::before {
+  top: 0;
+}
+
+.clients::after {
+  bottom: 0;
+}
+
+.clients__glow {
   position: absolute;
   z-index: -1;
-  inset: 0;
-  background-image:
-    linear-gradient(rgb(157 180 224 / 0.06) 1px, transparent 1px),
-    linear-gradient(90deg, rgb(157 180 224 / 0.06) 1px, transparent 1px);
-  background-size: 48px 48px;
-  content: '';
-  mask-image: radial-gradient(ellipse 70% 70% at 50% 40%, #000, transparent 80%);
-  -webkit-mask-image: radial-gradient(ellipse 70% 70% at 50% 40%, #000, transparent 80%);
+  top: 55%;
+  left: 30%;
+  width: min(70vw, 620px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(closest-side, rgb(47 107 237 / 0.22), transparent);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
 }
 
-.showcase__caption {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
-  gap: var(--space-4) var(--space-8);
-  padding: var(--space-6) clamp(1.25rem, 1rem + 1.5vw, 2.5rem);
-  border-top: var(--border-subtle);
+.clients__inner {
+  max-width: 1040px;
 }
 
-.showcase__caption h3 {
-  font-size: var(--fs-h3);
+.clients__heading h2 {
+  max-width: 20ch;
+  margin-top: var(--space-4);
+  font-size: var(--fs-h2);
+  line-height: 1.04;
 }
 
-.showcase__caption p {
-  margin-top: var(--space-1);
-  color: var(--color-muted);
-  font-size: var(--fs-sm);
+.clients__list {
+  margin-top: clamp(2.5rem, 2rem + 3vw, 4.5rem);
 }
 
-.showcase__tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-2);
-}
-
-.trust-strip {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
-  gap: var(--space-4) var(--space-8);
-  margin-top: var(--space-8);
-  padding-top: var(--space-8);
-  border-top: var(--border-subtle);
-}
-
-.trust-strip__client {
-  display: flex;
-  align-items: center;
-  gap: var(--space-5);
-}
-
-.trust-strip__logo {
+.client {
   display: grid;
-  flex: none;
-  place-items: center;
-  padding: 10px 16px;
-  border-radius: var(--radius);
-  background: #fff;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(2rem, 1rem + 4vw, 4.5rem);
 }
 
-.trust-strip__logo img {
-  width: 88px;
+.client__logo {
+  position: relative;
+  display: grid;
+  width: clamp(200px, 16vw + 80px, 280px);
+  aspect-ratio: 4 / 3;
+  place-items: center;
+  padding: 12%;
+  border-radius: var(--radius-xl);
+  background: #fff;
+  box-shadow:
+    0 0 0 1px rgb(255 255 255 / 0.6),
+    0 0 0 8px rgb(91 147 255 / 0.08),
+    0 0 60px -6px rgb(63 200 236 / 0.35),
+    0 30px 60px -24px rgb(0 0 0 / 0.7);
+}
+
+.client__logo img {
+  width: 100%;
   height: auto;
 }
 
-.trust-strip__client p {
-  color: var(--color-muted);
-  font-size: var(--fs-sm);
+/* Anillo de luz que recorre el borde del logo. */
+.client__ring {
+  position: absolute;
+  z-index: -1;
+  inset: -14px;
+  border-radius: calc(var(--radius-xl) + 14px);
+  background: conic-gradient(
+    from var(--ring-angle, 0deg),
+    transparent 0 70%,
+    rgb(63 200 236 / 0.85) 82%,
+    rgb(91 147 255 / 0.9) 90%,
+    transparent
+  );
+  padding: 1px;
+  mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  mask-composite: exclude;
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  animation: ring-spin 8s linear infinite;
 }
 
-.trust-strip__client strong {
-  display: block;
-  color: var(--color-text);
-  font-size: var(--fs-base);
-  font-weight: 600;
+.client__body h3 {
+  font-size: clamp(1.5rem, 1.2rem + 1.2vw, 2.125rem);
+  line-height: 1.1;
+}
+
+.client__tagline {
+  margin-top: var(--space-2);
+  color: var(--color-cyan);
+  font-size: var(--fs-md);
+  font-weight: 500;
+}
+
+.client__description {
+  max-width: 56ch;
+  margin-top: var(--space-6);
+  padding-top: var(--space-6);
+  border-top: var(--border);
+  color: var(--color-text-soft);
+  font-size: var(--fs-lead);
+  line-height: 1.6;
+}
+
+@media (max-width: 767px) {
+  .client {
+    grid-template-columns: 1fr;
+    justify-items: start;
+  }
 }
 
 /* ================= CONTACTO: ingeniero directo ================= */
@@ -1234,17 +1104,5 @@ html:not(.reveal-ready) .timeline__progress {
   .quality__list li:nth-child(2n + 1) {
     padding-left: 0;
     border-left: 0;
-  }
-
-  .app-mock {
-    grid-template-columns: 1fr;
-  }
-
-  .app-mock__side {
-    display: none;
-  }
-
-  .trust-strip__client {
-    align-items: flex-start;
   }
 }

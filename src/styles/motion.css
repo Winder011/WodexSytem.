@@ -48,12 +48,6 @@
 
 /* Parallax sutil ligado al scroll, solo donde el navegador lo soporta. */
 @supports (animation-timeline: view()) {
-  .showcase__stage .app-mock {
-    animation: parallax-rise linear both;
-    animation-timeline: view();
-    animation-range: entry 0% cover 60%;
-  }
-
   .web-dev__glow,
   .contact__glow {
     animation: parallax-glow linear both;
@@ -127,6 +121,18 @@
   }
 }
 
+@property --ring-angle {
+  syntax: '<angle>';
+  inherits: false;
+  initial-value: 0deg;
+}
+
+@keyframes ring-spin {
+  to {
+    --ring-angle: 360deg;
+  }
+}
+
 @keyframes halo {
   from {
     opacity: 0.55;
@@ -148,16 +154,6 @@
 @keyframes scan-in {
   from {
     transform: scaleX(0);
-  }
-}
-
-@keyframes parallax-rise {
-  from {
-    translate: 0 40px;
-  }
-
-  to {
-    translate: 0 0;
   }
 }
 

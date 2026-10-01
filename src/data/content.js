@@ -15,13 +15,14 @@ import {
   ShoppingBag,
   Store,
 } from 'lucide-react'
+import jsmLogo from '../assets/clients/jsm.webp'
 
 export const PILLARS = [
   {
     key: 'web',
     label: 'Desarrollo web',
-      title: 'Presencia digital que representa tu empresa.',
-      text: 'Desarrollamos experiencias digitales alineadas con la identidad y los objetivos de tu empresa.',
+    title: 'Presencia digital que representa tu empresa.',
+    text: 'Desarrollamos experiencias digitales alineadas con la identidad y los objetivos de tu empresa.',
     icon: Globe,
     items: ['Sitios corporativos', 'Landing pages', 'Tiendas online', 'Sistemas web'],
     projectType: 'Página web',
@@ -91,11 +92,18 @@ export const PROCESS = [
   ['Descubrimos', 'Entendemos tu empresa, tus usuarios y el objetivo del proyecto.'],
   ['Diseñamos', 'Definimos estructura y propuesta visual.'],
   ['Desarrollamos', 'Construimos con avances visibles y pruebas en cada etapa.'],
-    ['Lanzamos', 'Publicamos tu proyecto y seguimos contigo en futuras mejoras y mantenimiento.'],
+  ['Lanzamos', 'Publicamos tu proyecto y seguimos contigo en futuras mejoras y mantenimiento.'],
 ]
 
-export const PROJECT = {
-  name: 'Asset Hub',
-  kind: 'Sistema web para gestión de activos empresariales',
-  tags: ['Aplicación web', 'Panel de control', 'Reportes'],
-}
+// Empresas que confían en Wodex (sección Clientes Wodex).
+export const CLIENTS = [
+  {
+    name: 'JSM Servicentros',
+    tagline: 'Soluciones para su control tecnológico y operativo.',
+    description:
+      'Desarrollamos Asset Hub para centralizar la gestión de activos de JSM Servicentros, facilitando el control de equipos, mantenimientos y operaciones desde una plataforma web.',
+    logo: jsmLogo,
+    logoWidth: 280,
+    logoHeight: 151,
+  },
+]

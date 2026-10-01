@@ -13,14 +13,12 @@ export default function Process() {
               De la idea al lanzamiento. <span className="text-muted"></span>
             </>
           }
-        >
-       
-        </SectionHeading>
+        ></SectionHeading>
 
         <div className="timeline">
           <div className="timeline__track" aria-hidden="true">
             <span className="timeline__progress" />
-          </div>F
+          </div>
           <ol>
             {PROCESS.map(([title, text], index) => (
               <li
