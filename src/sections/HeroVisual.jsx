@@ -1,104 +1,62 @@
-import { Check, Lock, Star, Zap } from 'lucide-react'
+import logo from '../assets/logo.webp'
+import { ORBIT } from '../data/content'
 
-// Composición ilustrativa (HTML + CSS, sin imágenes): un sitio web, una tarjeta
-// de crecimiento y un flujo automatizado. Representa los tres pilares de Wodex.
-// Es decorativa: el contenido real está en el texto del hero.
+// Ángulo de cada disciplina sobre la órbita (arriba, abajo-derecha, abajo-izquierda).
+const ANGLES = [-90, 30, 150]
+// Coordenadas de cada nodo en el viewBox 400×400 del SVG de conexiones (radio 152).
+const POINTS = ANGLES.map((angle) => {
+  const rad = (angle * Math.PI) / 180
+  return [200 + 152 * Math.cos(rad), 200 + 152 * Math.sin(rad)]
+})
+
+// Wodex en el centro y Web, Marketing y Software orbitando a su alrededor.
+// Todo el movimiento es CSS (transform/rotate), sin JS por fotograma.
 export default function HeroVisual() {
   return (
-    <div className="hero-visual" aria-hidden="true">
-      <div className="hero-visual__orbit hero-visual__orbit--a" />
-      <div className="hero-visual__orbit hero-visual__orbit--b" />
-
-      <div className="mock-browser depth-1">
-        <div className="mock-browser__bar">
-          <span />
-          <span />
-          <span />
-          <div className="mock-browser__url">
-            <Lock /> tunegocio.cr
-          </div>
-        </div>
-        <div className="mock-browser__body">
-          <div className="mock-site__nav">
-            <i className="mock-site__logo" />
-            <i />
-            <i />
-            <i />
-            <b>Reservar</b>
-          </div>
-          <div className="mock-site__hero">
-            <div>
-              <small>Café de especialidad · San José</small>
-              <strong>Café hecho con calma.</strong>
-              <i />
-              <i className="short" />
-              <div className="mock-site__ctas">
-                <b>Ver menú</b>
-                <b className="ghost">WhatsApp</b>
-              </div>
-            </div>
-            <div className="mock-site__photo" />
-          </div>
-          <div className="mock-site__cards">
-            <div />
-            <div />
-            <div />
-          </div>
-        </div>
+    <div
+      className="hero-orbit"
+      role="img"
+      aria-label="Wodex System integra web, marketing y software"
+    >
+      <div className="hero-orbit__ring hero-orbit__ring--outer" aria-hidden="true">
+        <span className="hero-orbit__satellite" />
+        <span className="hero-orbit__satellite hero-orbit__satellite--b" />
       </div>
+      <div className="hero-orbit__ring hero-orbit__ring--mid" aria-hidden="true" />
+      <div className="hero-orbit__sweep" aria-hidden="true" />
 
-      <div className="mock-card mock-card--growth depth-2">
-        <div className="mock-card__head">
-          <span>Visitas al sitio</span>
-          <em>
-            <Zap /> En vivo
-          </em>
-        </div>
-        <svg className="mock-chart" viewBox="0 0 220 80" preserveAspectRatio="none">
-          <defs>
-            <linearGradient id="hero-chart-fill" x1="0" x2="0" y1="0" y2="1">
-              <stop offset="0" stopColor="currentColor" stopOpacity=".35" />
-              <stop offset="1" stopColor="currentColor" stopOpacity="0" />
-            </linearGradient>
-          </defs>
-          <path
-            d="M0 66 C22 62 34 54 52 56 S84 40 104 42 S140 26 160 28 S196 10 220 6 V80 H0Z"
-            fill="url(#hero-chart-fill)"
-          />
-          <path
-            className="mock-chart__line"
-            d="M0 66 C22 62 34 54 52 56 S84 40 104 42 S140 26 160 28 S196 10 220 6"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2.5"
-            pathLength="1"
-          />
+      <div className="hero-orbit__spin" aria-hidden="true">
+        <svg className="hero-orbit__links" viewBox="0 0 400 400">
+          {POINTS.map(([x, y], index) => (
+            <g key={index}>
+              <line x1="200" y1="200" x2={x} y2={y} />
+              <line
+                className="hero-orbit__pulse"
+                x1="200"
+                y1="200"
+                x2={x}
+                y2={y}
+                pathLength="100"
+                style={{ animationDelay: `${index * -1.2}s` }}
+              />
+            </g>
+          ))}
         </svg>
-        <div className="mock-card__legend">
-          <span>Ene</span>
-          <span>Feb</span>
-          <span>Mar</span>
-          <span>Abr</span>
-        </div>
+
+        {ORBIT.map(({ label, icon: Icon }, index) => (
+          <span key={label} className="hero-orbit__node" style={{ '--a': `${ANGLES[index]}deg` }}>
+            <span className="hero-orbit__chip">
+              <Icon />
+              {label}
+            </span>
+          </span>
+        ))}
       </div>
 
-      <div className="mock-card mock-card--flow depth-3">
-        <span className="mock-card__label">Automatización</span>
-        <ol>
-          <li>
-            <Check /> Nuevo pedido recibido
-          </li>
-          <li>
-            <Check /> Inventario actualizado
-          </li>
-          <li className="is-running">
-            <span className="mock-spinner" /> Avisando al cliente
-          </li>
-        </ol>
-      </div>
-
-      <div className="mock-chip depth-2">
-        <Star /> Cliente nuevo por WhatsApp
+      <div className="hero-orbit__core" aria-hidden="true">
+        <span className="hero-orbit__halo" />
+        <img src={logo} alt="" width="64" height="47" />
+        <span className="hero-orbit__name">Wodex</span>
       </div>
     </div>
   )

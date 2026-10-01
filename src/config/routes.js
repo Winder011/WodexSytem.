@@ -11,24 +11,17 @@ export const ROUTES = [
     path: '/desarrollo-web',
     anchor: 'desarrollo-web',
   },
-  { key: 'marketing', label: 'Marketing', path: '/marketing', anchor: 'crecimiento' },
-  { key: 'publicidad', label: 'Publicidad', path: '/publicidad', anchor: 'crecimiento' },
+  { key: 'marketing', label: 'Marketing', path: '/marketing', anchor: 'servicios' },
+  { key: 'publicidad', label: 'Publicidad', path: '/publicidad', anchor: 'servicios' },
   { key: 'software', label: 'Software', path: '/software', anchor: 'servicios' },
   { key: 'proyectos', label: 'Proyectos', path: '/proyectos', anchor: 'proyectos' },
-  { key: 'nosotros', label: 'Nosotros', path: '/nosotros', anchor: 'nosotros' },
+  { key: 'nosotros', label: 'Nosotros', path: '/nosotros', anchor: 'inicio' },
   { key: 'contacto', label: 'Contacto', path: '/contacto', anchor: 'contacto' },
 ]
 
 const byKey = Object.fromEntries(ROUTES.map((route) => [route.key, route]))
 
-export const NAV_KEYS = [
-  'inicio',
-  'servicios',
-  'desarrollo-web',
-  'proyectos',
-  'nosotros',
-  'contacto',
-]
+export const NAV_KEYS = ['inicio', 'servicios', 'desarrollo-web', 'proyectos', 'contacto']
 export const NAV = NAV_KEYS.map((key) => byKey[key])
 
 // Mientras el sitio sea de una sola página, los enlaces internos apuntan al ancla.

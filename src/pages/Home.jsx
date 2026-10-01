@@ -1,10 +1,8 @@
-import About from '../sections/About'
 import ContactSection from '../sections/ContactSection'
-import Growth from '../sections/Growth'
 import Hero from '../sections/Hero'
-import Problems from '../sections/Problems'
 import Process from '../sections/Process'
 import Projects from '../sections/Projects'
+import Quality from '../sections/Quality'
 import Services from '../sections/Services'
 import WebDevelopment from '../sections/WebDevelopment'
 
@@ -15,12 +13,10 @@ export default function Home() {
     <>
       <Hero />
       <Services />
-      <Problems />
       <WebDevelopment />
-      <Growth />
+      <Quality />
       <Process />
       <Projects />
-      <About />
       <ContactSection />
     </>
   )

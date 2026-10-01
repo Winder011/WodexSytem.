@@ -10,17 +10,17 @@ export default function Process() {
           eyebrow="Cómo trabajamos"
           title={
             <>
-              De la idea al lanzamiento, <span className="text-muted">y después también.</span>
+              De la idea al lanzamiento. <span className="text-muted"></span>
             </>
           }
         >
-          Un proceso claro para que sepas en qué etapa está tu proyecto y qué sigue.
+       
         </SectionHeading>
 
         <div className="timeline">
           <div className="timeline__track" aria-hidden="true">
             <span className="timeline__progress" />
-          </div>
+          </div>F
           <ol>
             {PROCESS.map(([title, text], index) => (
               <li

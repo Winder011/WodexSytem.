@@ -35,6 +35,51 @@
   color: transparent;
 }
 
+/* "impulsa" en el hero: grotesca ancha con brillo que recorre la palabra y una
+   línea de escaneo debajo. Solo se descarga la fuente para estas letras. */
+.accent-tech {
+  position: relative;
+  display: inline-block;
+  padding-bottom: 0.08em;
+  font-family: Unbounded, var(--font-sans);
+  font-size: 0.84em;
+  font-weight: 500;
+  letter-spacing: -0.05em;
+  background: linear-gradient(
+    100deg,
+    #7fb0ff 0%,
+    #4f8cff 30%,
+    #9fe9ff 50%,
+    #4f8cff 70%,
+    #7fb0ff 100%
+  );
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: sheen 7s linear infinite;
+}
+
+.accent-tech::after {
+  position: absolute;
+  right: 0.04em;
+  bottom: 0;
+  left: 0.04em;
+  height: 2px;
+  border-radius: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--color-cyan),
+    var(--color-brand-bright),
+    transparent
+  );
+  box-shadow: 0 0 12px rgb(63 200 236 / 0.6);
+  content: '';
+  transform-origin: left;
+  animation: scan-in 1.2s var(--ease-out) 600ms both;
+}
+
 /* ---------- Botones ---------- */
 .button {
   --button-bg: transparent;
@@ -98,6 +143,12 @@
   background: rgb(255 255 255 / 0.02);
 }
 
+.button--whatsapp-solid {
+  --button-bg: var(--color-whatsapp);
+  --button-fg: #052612;
+  box-shadow: 0 12px 30px -12px rgb(37 211 102 / 0.7);
+}
+
 .button--whatsapp {
   border: 1px solid rgb(37 211 102 / 0.4);
   color: #c9f5da;
@@ -115,6 +166,11 @@
   .button--ghost:hover {
     border-color: rgb(157 180 224 / 0.5);
     background: rgb(255 255 255 / 0.05);
+  }
+
+  .button--whatsapp-solid:hover {
+    --button-bg: #2ee573;
+    box-shadow: 0 16px 36px -12px rgb(37 211 102 / 0.85);
   }
 
   .button--whatsapp:hover {

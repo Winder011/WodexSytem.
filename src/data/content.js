@@ -3,72 +3,54 @@ import {
   BriefcaseBusiness,
   ChartNoAxesCombined,
   Code2,
+  Gauge,
   Globe,
+  Layers,
   LayoutTemplate,
-  Megaphone,
+  MonitorSmartphone,
   MousePointerClick,
-  Search,
+  Palette,
+  ScanEye,
+  ShieldCheck,
   ShoppingBag,
   Store,
-  UserRoundCheck,
-  Workflow,
 } from 'lucide-react'
 
 export const PILLARS = [
   {
-    key: 'presencia',
-    label: 'Presencia digital',
-    title: 'Que te encuentren y confíen en ti.',
-    text: 'Sitios rápidos y bien diseñados que presentan tu negocio con la seriedad que merece.',
+    key: 'web',
+    label: 'Desarrollo web',
+      title: 'Presencia digital que representa tu empresa.',
+      text: 'Desarrollamos experiencias digitales alineadas con la identidad y los objetivos de tu empresa.',
     icon: Globe,
-    items: ['Desarrollo web', 'Landing pages', 'Tiendas online', 'Catálogos digitales'],
+    items: ['Sitios corporativos', 'Landing pages', 'Tiendas online', 'Sistemas web'],
     projectType: 'Página web',
   },
   {
-    key: 'crecimiento',
-    label: 'Crecimiento',
-    title: 'Que lleguen más personas correctas.',
-    text: 'Campañas y posicionamiento para atraer visitas con intención real de comprar o contratar.',
+    key: 'marketing',
+    label: 'Marketing digital',
+    title: 'Que te encuentren las personas correctas.',
+    text: 'Posicionamiento y campañas medibles, conectadas a tu sitio y a tus objetivos.',
     icon: ChartNoAxesCombined,
-    items: ['Marketing digital', 'Publicidad digital', 'SEO', 'Estrategia digital'],
-    projectType: 'Marketing y publicidad',
+    items: ['SEO', 'Publicidad digital', 'Estrategia digital', 'Analítica'],
+    projectType: 'Marketing digital',
   },
   {
-    key: 'tecnologia',
-    label: 'Tecnología',
-    title: 'Que tu operación funcione sola.',
-    text: 'Software a la medida de tus procesos, para dejar atrás hojas sueltas y tareas repetidas.',
+    key: 'software',
+    label: 'Software a medida',
+    title: 'Herramientas que siguen tus procesos.',
+    text: 'Software diseñado alrededor de cómo opera tu empresa.',
     icon: Code2,
     items: ['Software personalizado', 'Automatización', 'Integraciones', 'Sistemas empresariales'],
     projectType: 'Software a medida',
   },
 ]
 
-export const PROBLEMS = [
-  ['No tienes página web.', 'Un sitio profesional, rápido y fácil de encontrar en Google.'],
-  [
-    'Dependes solo de redes sociales.',
-    'Un canal propio que controlas, sin depender de un algoritmo.',
-  ],
-  [
-    'Tus clientes no encuentran la información.',
-    'Servicios, horarios, precios y contacto claros en un solo lugar.',
-  ],
-  [
-    'Falta confianza o presencia profesional.',
-    'Una imagen cuidada que respalda la calidad de tu trabajo.',
-  ],
-  ['Se pierden oportunidades.', 'Formularios y WhatsApp conectados para responder a tiempo.'],
-]
-
-export const AUDIENCES = [
-  'Pequeños negocios',
-  'Emprendedores',
-  'Restaurantes',
-  'Tiendas',
-  'Profesionales',
-  'Empresas',
-  'Negocios sin página web',
+// Disciplinas que orbitan alrededor de Wodex en el hero.
+export const ORBIT = [
+  { label: 'Web', icon: Globe },
+  { label: 'Marketing', icon: ChartNoAxesCombined },
+  { label: 'Software', icon: Code2 },
 ]
 
 export const WEB_SERVICES = [
@@ -96,67 +78,24 @@ export const WEB_SERVICES = [
   { title: 'Sitios personalizados', text: 'Cuando tu idea no cabe en una plantilla.', icon: Store },
 ]
 
-export const WEB_STANDARDS = [
-  'Diseño adaptado a móvil, tablet y escritorio',
-  'Carga rápida y buenas prácticas de SEO',
-  'Botón de WhatsApp y formularios de contacto',
-  'Analítica para medir visitas y contactos',
-]
-
-export const FUNNEL = [
-  {
-    label: 'Publicidad',
-    text: 'Campañas en Meta y Google dirigidas a tu cliente.',
-    icon: Megaphone,
-  },
-  { label: 'Tráfico', text: 'Visitas desde anuncios, búsquedas y redes.', icon: Search },
-  { label: 'Sitio web', text: 'Una página clara que responde dudas.', icon: Globe },
-  {
-    label: 'Conversión',
-    text: 'Formulario, WhatsApp o compra en un clic.',
-    icon: MousePointerClick,
-  },
-  { label: 'Cliente', text: 'Una oportunidad que llega a tu equipo.', icon: UserRoundCheck },
+export const QUALITY = [
+  { label: 'Diseño', text: 'Identidad propia', icon: Palette },
+  { label: 'UX', text: 'Recorridos claros', icon: ScanEye },
+  { label: 'Rendimiento', text: 'Carga inmediata', icon: Gauge },
+  { label: 'Seguridad', text: 'Buenas prácticas', icon: ShieldCheck },
+  { label: 'Responsive', text: 'Todo dispositivo', icon: MonitorSmartphone },
+  { label: 'Escalabilidad', text: 'Listo para crecer', icon: Layers },
 ]
 
 export const PROCESS = [
-  ['Descubrimos', 'Conversamos sobre tu negocio, tus clientes y lo que quieres lograr.'],
-  ['Diseñamos', 'Definimos estructura, mensajes y una propuesta visual que puedes revisar.'],
-  ['Desarrollamos', 'Construimos con avances visibles para que veas el progreso.'],
-  ['Lanzamos', 'Publicamos, probamos en todos los dispositivos y conectamos tus canales.'],
-  ['Hacemos crecer', 'Medimos, ajustamos y sumamos mejoras cuando tu negocio lo pide.'],
+  ['Descubrimos', 'Entendemos tu empresa, tus usuarios y el objetivo del proyecto.'],
+  ['Diseñamos', 'Definimos estructura y propuesta visual.'],
+  ['Desarrollamos', 'Construimos con avances visibles y pruebas en cada etapa.'],
+    ['Lanzamos', 'Publicamos tu proyecto y seguimos contigo en futuras mejoras y mantenimiento.'],
 ]
 
-export const CASE_STUDY = {
+export const PROJECT = {
   name: 'Asset Hub',
   kind: 'Sistema web para gestión de activos empresariales',
-  steps: [
-    [
-      'Problema',
-      'El control de equipos, movimientos y mantenimientos estaba disperso y era difícil de consultar.',
-    ],
-    [
-      'Solución',
-      'Una plataforma central para registrar activos, su ubicación, responsables, infraestructura y mantenimiento.',
-    ],
-    [
-      'Resultado',
-      'Información operativa en un solo lugar, con historial de cada activo y consultas más rápidas.',
-    ],
-  ],
-  stack: ['Aplicación web', 'Base de datos', 'Panel administrativo', 'Reportes'],
+  tags: ['Aplicación web', 'Panel de control', 'Reportes'],
 }
-
-export const CONNECTED = [
-  { label: 'Web', icon: Globe },
-  { label: 'Marketing', icon: Megaphone },
-  { label: 'Software', icon: Code2 },
-  { label: 'Automatización', icon: Workflow },
-]
-
-export const PRINCIPLES = [
-  ['Hablamos claro', 'Sin tecnicismos innecesarios ni propuestas infladas.'],
-  ['Pensamos en tu operación', 'Diseñamos a partir de cómo trabaja tu negocio.'],
-  ['Seguimos contigo', 'Después del lanzamiento, ajustamos y mejoramos.'],
-  ['Equipo en Costa Rica', 'Mismo horario, mismo idioma, trato directo.'],
-]

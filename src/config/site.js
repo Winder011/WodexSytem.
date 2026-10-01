@@ -1,12 +1,11 @@
 export const SITE = {
   name: 'Wodex System',
-  tagline: 'Tecnología que impulsa negocios.',
+  tagline: 'Tecnología que impulsa empresas.',
   url: import.meta.env.VITE_SITE_URL,
   country: 'Costa Rica',
-  whatsapp: {
-    number: '50662807752',
-    display: '+506 6280 7752',
-  },
+  // Uso interno: solo se emplea para construir los enlaces de WhatsApp.
+  // No debe mostrarse escrito en la interfaz.
+  whatsappNumber: '50662807752',
   instagram: 'https://www.instagram.com/wodexsystem/',
 }
 
@@ -14,7 +13,7 @@ export const PROJECT_TYPES = [
   'Página web',
   'Landing page',
   'Tienda online',
-  'Marketing y publicidad',
+  'Marketing digital',
   'Software a medida',
   'Automatización',
   'Integraciones',

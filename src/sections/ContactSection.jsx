@@ -1,8 +1,9 @@
-import { Mail, MapPin } from 'lucide-react'
+import { ArrowUpRight, Clock, Cpu, MapPin } from 'lucide-react'
 import ContactForm from '../components/ContactForm'
 import { WhatsAppIcon } from '../components/icons'
-import { SITE } from '../config/site'
 import { whatsappUrl } from '../lib/whatsapp'
+
+const engineerHref = whatsappUrl()
 
 export default function ContactSection() {
   return (
@@ -14,51 +15,50 @@ export default function ContactSection() {
             Contacto
           </p>
           <h2 id="contact-title" data-reveal>
-            Hablemos de tu <em className="accent-serif">proyecto.</em>
+            Atención directa con un ingeniero.{' '}
+            <span className="text-muted">Sin intermediarios.</span>
           </h2>
           <p className="contact__lede" data-reveal>
-            Cuéntanos qué quieres crear, mejorar o automatizar. Te respondemos con preguntas
-            concretas y una propuesta clara.
+            Respondemos tus mensajes en menos de 24 horas.
           </p>
 
-          <ul className="contact-options" data-reveal>
-            <li className="contact-option">
-              <span className="contact-option__icon">
-                <Mail aria-hidden="true" />
+          <div className="engineer-card" data-reveal>
+            <div className="engineer-card__head">
+              <span className="engineer-card__avatar" aria-hidden="true">
+                <Cpu />
               </span>
               <div>
-                <h3>Por correo</h3>
-                <p>Completa el formulario y recibimos tu mensaje directamente.</p>
-              </div>
-            </li>
-            <li className="contact-option contact-option--whatsapp">
-              <span className="contact-option__icon">
-                <WhatsAppIcon />
-              </span>
-              <div>
-                <h3>Por WhatsApp</h3>
-                <p>
-                  Escríbenos al{' '}
-                  <a href={whatsappUrl()} target="_blank" rel="noopener noreferrer">
-                    {SITE.whatsapp.display}
-                  </a>{' '}
-                  o usa el botón del formulario para enviar tus datos.
+                <p className="engineer-card__title">Equipo de ingeniería Wodex</p>
+                <p className="engineer-card__meta">
+                  Quien te responde es quien diseña y construye tu proyecto.
                 </p>
               </div>
-            </li>
-            <li className="contact-option">
-              <span className="contact-option__icon">
-                <MapPin aria-hidden="true" />
-              </span>
-              <div>
-                <h3>Costa Rica</h3>
-                <p>Trabajamos con negocios de todo el país, de forma remota o presencial.</p>
-              </div>
-            </li>
-          </ul>
+            </div>
+            <a
+              className="button button--whatsapp-solid button--lg engineer-card__cta"
+              href={engineerHref}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <WhatsAppIcon /> Hablar con un ingeniero <ArrowUpRight aria-hidden="true" />
+              <span className="sr-only"> (abre WhatsApp en una pestaña nueva)</span>
+            </a>
+            <ul className="engineer-card__facts">
+              <li>
+                <Clock aria-hidden="true" /> Respuesta en menos de 24 h
+              </li>
+              <li>
+                <MapPin aria-hidden="true" /> Costa Rica
+              </li>
+            </ul>
+          </div>
         </div>
 
         <div className="contact__panel" data-reveal>
+          <h3 className="contact__panel-title">¿Prefieres escribirnos?</h3>
+          <p className="contact__panel-copy">
+            Envía los detalles por correo o continúa la conversación por WhatsApp.
+          </p>
           <ContactForm />
         </div>
       </div>

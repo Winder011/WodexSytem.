@@ -1,8 +1,7 @@
-import { ArrowUpRight, Boxes, LayoutDashboard, Search, Server, Wrench } from 'lucide-react'
+import { Boxes, LayoutDashboard, Search, Server, Wrench } from 'lucide-react'
 import SectionHeading from '../components/SectionHeading'
 import jsmLogo from '../assets/clients/jsm.webp'
-import { CASE_STUDY } from '../data/content'
-import { useOpenContact } from '../lib/contact'
+import { PROJECT } from '../data/content'
 
 const rows = [
   ['Laptop · Contabilidad', 'Asignado', 'ok'],
@@ -12,8 +11,6 @@ const rows = [
 ]
 
 export default function Projects() {
-  const openContact = useOpenContact()
-
   return (
     <section id="proyectos" className="section projects" aria-labelledby="projects-title">
       <div className="container">
@@ -26,73 +23,45 @@ export default function Projects() {
             </>
           }
         >
-          Herramientas reales, usadas por equipos reales. Este es uno de los sistemas que hemos
-          desarrollado.
+          Herramientas reales, usadas por equipos reales.
         </SectionHeading>
 
-        <article className="case" aria-labelledby="case-title">
-          <div className="case__visual" data-reveal>
+        <figure className="showcase" data-reveal>
+          <div className="showcase__stage">
             <AssetHubMock />
           </div>
-
-          <div className="case__content" data-reveal>
-            <p className="eyebrow">Caso de estudio</p>
-            <h3 id="case-title" className="case__title">
-              {CASE_STUDY.name}
-            </h3>
-            <p className="case__kind">{CASE_STUDY.kind}</p>
-
-            <dl className="case__steps">
-              {CASE_STUDY.steps.map(([term, detail]) => (
-                <div key={term}>
-                  <dt>{term}</dt>
-                  <dd>{detail}</dd>
-                </div>
+          <figcaption className="showcase__caption">
+            <div>
+              <h3>{PROJECT.name}</h3>
+              <p>{PROJECT.kind}</p>
+            </div>
+            <ul className="showcase__tags" aria-label="Componentes">
+              {PROJECT.tags.map((tag) => (
+                <li key={tag} className="tag tag--small">
+                  {tag}
+                </li>
               ))}
-              <div>
-                <dt>Componentes</dt>
-                <dd>
-                  <ul className="case__stack">
-                    {CASE_STUDY.stack.map((item) => (
-                      <li key={item} className="tag tag--small">
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-                </dd>
-              </div>
-            </dl>
-          </div>
-        </article>
+            </ul>
+          </figcaption>
+        </figure>
 
-        <div className="projects__row">
-          <figure className="client-card" data-reveal>
-            <div className="client-card__logo">
+        <div className="trust-strip" data-reveal>
+          <p className="eyebrow">Confían en nosotros</p>
+          <div className="trust-strip__client">
+            <span className="trust-strip__logo">
               <img
                 src={jsmLogo}
                 alt="JSM Servicentros"
-                width="180"
-                height="97"
+                width="120"
+                height="65"
                 loading="lazy"
                 decoding="async"
               />
-            </div>
-            <figcaption>
-              <p className="eyebrow">Cliente</p>
-              <h3>JSM Servicentros</h3>
-              <p>
-                Desarrollamos soluciones para optimizar su control tecnológico y operativo. Una
-                relación construida proyecto a proyecto.
-              </p>
-            </figcaption>
-          </figure>
-
-          <div className="next-card" data-reveal>
-            <p className="eyebrow">Tu proyecto</p>
-            <h3>El próximo caso puede ser el tuyo.</h3>
-            <button type="button" className="button button--ghost" onClick={() => openContact()}>
-              Cuéntanos tu idea <ArrowUpRight aria-hidden="true" />
-            </button>
+            </span>
+            <p>
+              <strong>JSM Servicentros</strong>
+              Soluciones para su control tecnológico y operativo.
+            </p>
           </div>
         </div>
       </div>

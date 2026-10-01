@@ -1,5 +1,28 @@
 # Changelog
 
+## 2.1.0 — 2026-10-01
+
+Enfoque en tecnología e ingeniería: menos secciones y mejor jerarquía.
+
+### Cambiado
+
+- Mensaje principal: «Tecnología que impulsa empresas.» (hero, SEO, imagen OG).
+- El hero muestra ahora la órbita animada Wodex · Web · Marketing · Software.
+- «impulsa» usa Unbounded con brillo animado y línea de escaneo.
+- Soluciones: Desarrollo web, Marketing digital y Software a medida.
+- «Lo que cuidamos» pasa a ser una franja breve: Diseño, UX, Rendimiento, Seguridad, Responsive y
+  Escalabilidad.
+- Proceso en cuatro pasos.
+- Asset Hub se presenta como proyecto visual, sin formato de caso de estudio.
+- Contacto: «Atención directa con un ingeniero. Sin intermediarios.» con botón a WhatsApp; el número
+  ya no aparece escrito en el sitio, el README ni los datos estructurados.
+
+### Eliminado
+
+- Composición del hero con el mockup de café, visitas y automatización.
+- Secciones «Tu negocio es bueno…», «Una web sin visitas…» y «No creamos solamente páginas bonitas».
+- Bloque «Pensado para» y caso de estudio de Asset Hub.
+
 ## 2.0.0 — 2026-10-01
 
 Rediseño integral: Wodex pasa de una landing de software a medida a una marca de tecnología que

@@ -1,7 +1,7 @@
 # Wodex System — sitio web
 
 Sitio de **Wodex System**, empresa de tecnología en Costa Rica: desarrollo web, marketing digital y
-software a medida. _Tecnología que impulsa negocios._
+software a medida. _Tecnología que impulsa empresas._
 
 Construido con React 19 y Vite 8, sin frameworks de CSS: un sistema de diseño propio en CSS con
 variables.
@@ -46,7 +46,8 @@ El formulario ofrece dos vías:
    key. Esa clave es pública por diseño (solo identifica el buzón de destino), por lo que no se
    exponen credenciales SMTP ni claves privadas. Incluye un campo trampa anti-spam (`botcheck`).
    Si la clave no está configurada, el formulario lo indica y sugiere WhatsApp.
-2. **WhatsApp**: abre `wa.me/50662807752` con un mensaje armado a partir de los datos escritos.
+2. **WhatsApp**: abre WhatsApp con un mensaje armado a partir de los datos escritos. El número se
+   configura en `src/config/site.js` (`whatsappNumber`) y nunca se muestra escrito en la interfaz.
 
 Para activar el correo: entra a web3forms.com, escribe el correo de destino, copia la access key y
 guárdala en `VITE_WEB3FORMS_ACCESS_KEY`.
@@ -59,7 +60,7 @@ src/
                routes.js (rutas actuales y futuras; también lo lee vite.config.js)
   data/        content.js (textos e íconos de cada sección)
   components/  piezas compartidas: Header, Footer, Contact (modal), ContactForm…
-  sections/    secciones de la página: Hero, Services, WebDevelopment, Growth…
+  sections/    secciones de la página: Hero, Services, WebDevelopment, Quality, Process…
   pages/       Home.jsx compone las secciones
   hooks/       useReveal (animaciones al hacer scroll), useActiveSection
   lib/         envío de correo, armado del mensaje de WhatsApp, contexto del modal
@@ -78,8 +79,8 @@ al `sitemap.xml`.
 ## Sistema de diseño
 
 - **Paleta** tomada del logo: azul noche `#070b14`, azul marca `#2f6bed` y acento cian `#3fc8ec`.
-- **Tipografía**: Geist (texto y títulos), Geist Mono (etiquetas) e Instrument Serif itálica para
-  las palabras destacadas.
+- **Tipografía**: Geist (texto y títulos), Geist Mono (etiquetas), Instrument Serif itálica para
+  palabras destacadas y Unbounded solo para «impulsa» en el hero (subconjunto de 7 letras).
 - Todos los colores, espacios, radios, sombras y tiempos de animación están en
   `src/styles/tokens.css`.
 - Las animaciones respetan `prefers-reduced-motion` y el contenido es visible sin JavaScript.

@@ -46,19 +46,9 @@
   scale: none;
 }
 
-/* La línea del gráfico se dibuja cuando aparece el hero */
-.reveal-ready .hero__stage .mock-chart__line {
-  stroke-dashoffset: 1;
-  transition: stroke-dashoffset 1.6s var(--ease-out) 700ms;
-}
-
-.reveal-ready .hero__stage.is-visible .mock-chart__line {
-  stroke-dashoffset: 0;
-}
-
 /* Parallax sutil ligado al scroll, solo donde el navegador lo soporta. */
 @supports (animation-timeline: view()) {
-  .case__visual .app-mock {
+  .showcase__stage .app-mock {
     animation: parallax-rise linear both;
     animation-timeline: view();
     animation-range: entry 0% cover 60%;
@@ -127,23 +117,37 @@
   }
 }
 
-@keyframes pulse-flow {
+@keyframes pulse-line {
   from {
-    background-position: -40% 0;
+    stroke-dashoffset: 12;
   }
 
   to {
-    background-position: 140% 0;
+    stroke-dashoffset: -100;
   }
 }
 
-@keyframes pulse-flow-y {
+@keyframes halo {
   from {
-    background-position: 0 -40%;
+    opacity: 0.55;
+    scale: 1;
   }
 
   to {
-    background-position: 0 140%;
+    opacity: 0;
+    scale: 1.55;
+  }
+}
+
+@keyframes sheen {
+  to {
+    background-position: -200% 0;
+  }
+}
+
+@keyframes scan-in {
+  from {
+    transform: scaleX(0);
   }
 }
 
@@ -182,11 +186,18 @@
     scroll-behavior: auto !important;
   }
 
-  .hero-visual [class*='depth-'] {
+  .hero-orbit__pulse,
+  .hero-orbit__sweep,
+  .hero-orbit__halo {
+    display: none;
+  }
+
+  .hero-orbit__spin,
+  .hero-orbit__core {
     translate: none;
   }
 
-  .funnel::after {
-    display: none;
+  .accent-tech::after {
+    transform: none;
   }
 }

@@ -2,7 +2,6 @@ import { useEffect, useRef } from 'react'
 import { ArrowDown, ArrowUpRight } from 'lucide-react'
 import HeroVisual from './HeroVisual'
 import { hrefFor } from '../config/routes'
-import { PILLARS } from '../data/content'
 import { useOpenContact } from '../lib/contact'
 
 export default function Hero() {
@@ -46,14 +45,14 @@ export default function Hero() {
         <div className="hero__copy">
           <p className="pill hero__pill" data-reveal>
             <span className="pill__dot" aria-hidden="true" />
-            Desarrollo web · Marketing · Software
+            Ingeniería de software · Costa Rica
           </p>
           <h1 id="hero-title" data-reveal>
-            Tecnología que <em className="accent-serif">impulsa</em> negocios.
+            Tecnología que <em className="accent-tech">impulsa</em> empresas.
           </h1>
           <p className="hero__lede" data-reveal>
-            Diseñamos experiencias digitales, desarrollamos soluciones tecnológicas y ayudamos a los
-            negocios a crecer.
+            Diseñamos experiencias digitales, desarrollamos soluciones tecnológicas y ayudamos a las
+            empresas a crecer.
           </p>
           <div className="hero__actions" data-reveal>
             <button
@@ -61,21 +60,12 @@ export default function Hero() {
               className="button button--primary button--lg"
               onClick={() => openContact()}
             >
-              Impulsa tu negocio <ArrowUpRight aria-hidden="true" />
+              Impulsa tu empresa <ArrowUpRight aria-hidden="true" />
             </button>
             <a className="button button--ghost button--lg" href={hrefFor('servicios')}>
               Conoce nuestros servicios <ArrowDown aria-hidden="true" />
             </a>
           </div>
-
-          <ul className="hero__pillars" aria-label="Lo que hacemos" data-reveal>
-            {PILLARS.map(({ key, label, icon: Icon }) => (
-              <li key={key}>
-                <Icon aria-hidden="true" />
-                {label}
-              </li>
-            ))}
-          </ul>
         </div>
 
         <div className="hero__stage" ref={stageRef} data-reveal>

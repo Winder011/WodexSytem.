@@ -50,8 +50,8 @@ export default function Contact({ open, projectType, onClose }) {
           <p className="eyebrow">Iniciar proyecto</p>
           <h2 id="contact-dialog-title">Hablemos de tu proyecto.</h2>
           <p id="contact-dialog-copy" className="contact-dialog__copy">
-            Cuéntanos qué necesitas. Puedes enviarlo por correo o continuar la conversación por
-            WhatsApp.
+            Cuéntanos qué necesitas. Lo recibe directamente un ingeniero, por
+            correo o por WhatsApp.
           </p>
           <ContactForm initialType={projectType} />
         </div>

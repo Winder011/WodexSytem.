@@ -5,11 +5,10 @@ import { SITE } from '../config/site'
 import { PILLARS } from '../data/content'
 import { whatsappUrl } from '../lib/whatsapp'
 
-const company = ['desarrollo-web', 'proyectos', 'nosotros', 'contacto']
+const company = ['desarrollo-web', 'proyectos', 'contacto']
 const companyLabels = {
   'desarrollo-web': 'Desarrollo web',
   proyectos: 'Proyectos',
-  nosotros: 'Nosotros',
   contacto: 'Contacto',
 }
 
@@ -21,12 +20,12 @@ export default function Footer() {
           <Brand />
           <p>{SITE.tagline}</p>
           <p className="site-footer__place">
-            Desarrollo web, marketing y software desde Costa Rica.
+            Desarrollo web, software y soluciones digitales desde Costa Rica.
           </p>
         </div>
 
-        <nav aria-label="Servicios">
-          <h2 className="site-footer__title">Servicios</h2>
+        <nav aria-label="Soluciones">
+          <h2 className="site-footer__title">Soluciones</h2>
           <ul>
             {PILLARS.map((pillar) => (
               <li key={pillar.key}>
@@ -52,7 +51,7 @@ export default function Footer() {
           <ul className="site-footer__contact">
             <li>
               <a href={whatsappUrl()} target="_blank" rel="noopener noreferrer">
-                <WhatsAppIcon /> {SITE.whatsapp.display}
+                <WhatsAppIcon /> Hablar con un ingeniero
               </a>
             </li>
             <li>
@@ -68,7 +67,6 @@ export default function Footer() {
         <p>
           © {new Date().getFullYear()} {SITE.name} · {SITE.country}
         </p>
-        <a href={hrefFor('inicio')}>Volver arriba ↑</a>
       </div>
     </footer>
   )

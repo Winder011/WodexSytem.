@@ -18,16 +18,16 @@ export default function Services() {
       <div className="container">
         <SectionHeading
           id="services-title"
-          eyebrow="Servicios"
+          eyebrow="Soluciones"
           title={
             <>
-              Tres frentes.{' '}
-              <span className="text-muted">Un mismo objetivo: que tu negocio avance.</span>
+              Tres soluciones.{' '}
+              <span className="text-muted">Un mismo objetivo: que tu empresa avance.</span>
             </>
           }
         >
-          Puedes empezar por uno y sumar los demás cuando lo necesites. Todo se construye para
-          trabajar en conjunto.
+          Puedes empezar por una y sumar las demás cuando lo necesites. Todo se diseña para trabajar
+          en conjunto.
         </SectionHeading>
 
         <ul className="pillars">
