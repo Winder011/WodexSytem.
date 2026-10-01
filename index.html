@@ -1,28 +1,124 @@
 <!doctype html>
-<html lang="es">
-<head>
+<html lang="es-CR">
+  <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#0a1115" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>Wodex System | Desarrollo web, marketing y software en Costa Rica</title>
+    <meta
+      name="description"
+      content="Tecnología que impulsa negocios. Diseñamos páginas web, campañas de marketing digital y software a medida para empresas y emprendedores en Costa Rica."
+    />
+    <link rel="canonical" href="%SITE_URL%/" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <meta name="theme-color" content="#070b14" />
+    <meta name="color-scheme" content="dark" />
 
-    <link rel="icon" type="image/png" href="/img/_logo.png" />
+    <link rel="icon" type="image/png" sizes="48x48" href="/favicon.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 
-    <meta name="keywords" content="software a medida, desarrollo de software, automatización de procesos, inteligencia artificial, soluciones tecnológicas, sistemas empresariales, integración de sistemas, aplicaciones web, Costa Rica" />
-    <meta name="description" content="Wodex System desarrolla software a medida, automatización e inteligencia artificial para convertir necesidades reales en soluciones digitales en Costa Rica." />
-    <meta name="robots" content="index, follow" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Geist:wght@400..700&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@1&display=swap"
+    />
 
     <!-- Open Graph -->
-    <meta property="og:title" content="Wodex System | Soluciones a tu medida" />
-    <meta property="og:description" content="Software a medida, automatización e inteligencia artificial para necesidades reales de negocio." />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="es_CR" />
-    <meta property="og:image" content="/img/_logo.png" />
-    <meta property="og:image:alt" content="Logo de Wodex System" />
+    <meta property="og:site_name" content="Wodex System" />
+    <meta property="og:url" content="%SITE_URL%/" />
+    <meta property="og:title" content="Wodex System | Tecnología que impulsa negocios" />
+    <meta
+      property="og:description"
+      content="Páginas web, marketing digital y software a medida para negocios en Costa Rica."
+    />
+    <meta property="og:image" content="%SITE_URL%/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:type" content="image/png" />
+    <meta
+      property="og:image:alt"
+      content="Wodex System: tecnología que impulsa negocios. Desarrollo web, marketing digital y software a medida."
+    />
 
-    <title>Wodex System | Software a medida desde Costa Rica</title>
-</head>
-<body>
+    <!-- Twitter / X -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Wodex System | Tecnología que impulsa negocios" />
+    <meta
+      name="twitter:description"
+      content="Páginas web, marketing digital y software a medida para negocios en Costa Rica."
+    />
+    <meta name="twitter:image" content="%SITE_URL%/og-image.png" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Organization",
+            "@id": "%SITE_URL%/#organization",
+            "name": "Wodex System",
+            "url": "%SITE_URL%/",
+            "logo": "%SITE_URL%/icon-512.png",
+            "slogan": "Tecnología que impulsa negocios.",
+            "sameAs": ["https://www.instagram.com/wodexsystem/"],
+            "contactPoint": {
+              "@type": "ContactPoint",
+              "telephone": "+506-6280-7752",
+              "contactType": "sales",
+              "areaServed": "CR",
+              "availableLanguage": ["es"]
+            }
+          },
+          {
+            "@type": "ProfessionalService",
+            "@id": "%SITE_URL%/#business",
+            "name": "Wodex System",
+            "url": "%SITE_URL%/",
+            "image": "%SITE_URL%/og-image.png",
+            "telephone": "+506-6280-7752",
+            "address": { "@type": "PostalAddress", "addressCountry": "CR" },
+            "areaServed": { "@type": "Country", "name": "Costa Rica" },
+            "parentOrganization": { "@id": "%SITE_URL%/#organization" },
+            "knowsAbout": [
+              "Desarrollo web",
+              "Tiendas online",
+              "Marketing digital",
+              "Publicidad digital",
+              "SEO",
+              "Software a medida",
+              "Automatización de procesos",
+              "Integración de sistemas"
+            ]
+          },
+          {
+            "@type": "WebSite",
+            "@id": "%SITE_URL%/#website",
+            "url": "%SITE_URL%/",
+            "name": "Wodex System",
+            "inLanguage": "es-CR",
+            "publisher": { "@id": "%SITE_URL%/#organization" }
+          }
+        ]
+      }
+    </script>
+  </head>
+  <body>
     <div id="root"></div>
+    <noscript>
+      <p
+        style="
+          padding: 24px;
+          font-family: system-ui, sans-serif;
+          color: #eef2fa;
+          background: #070b14;
+        "
+      >
+        Wodex System: desarrollo web, marketing digital y software a medida en Costa Rica.
+        Escríbenos por WhatsApp al +506 6280 7752.
+      </p>
+    </noscript>
     <script type="module" src="/src/main.jsx"></script>
-</body>
+  </body>
 </html>

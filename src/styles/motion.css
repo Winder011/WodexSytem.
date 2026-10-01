@@ -1,0 +1,192 @@
+/* Reveal al hacer scroll. El estado oculto solo aplica cuando useReveal añadió
+   .reveal-ready, así el contenido sigue visible sin JS o con reduced motion. */
+.reveal-ready [data-reveal] {
+  opacity: 0;
+  filter: blur(6px);
+  translate: 0 18px;
+  transition:
+    opacity var(--dur-slow) var(--ease-out) var(--delay, 0ms),
+    filter var(--dur-slow) var(--ease-out) var(--delay, 0ms),
+    translate var(--dur-slow) var(--ease-out) var(--delay, 0ms),
+    scale var(--dur-slow) var(--ease-out) var(--delay, 0ms);
+}
+
+.reveal-ready [data-reveal].is-visible {
+  opacity: 1;
+  filter: none;
+  translate: none;
+  scale: none;
+}
+
+/* Entrada escalonada del hero */
+.reveal-ready .hero [data-reveal]:nth-child(2) {
+  --delay: 80ms;
+}
+
+.reveal-ready .hero [data-reveal]:nth-child(3) {
+  --delay: 160ms;
+}
+
+.reveal-ready .hero [data-reveal]:nth-child(4) {
+  --delay: 240ms;
+}
+
+.reveal-ready .hero [data-reveal]:nth-child(5) {
+  --delay: 320ms;
+}
+
+.reveal-ready .hero__stage[data-reveal] {
+  --delay: 200ms;
+  translate: 0 24px;
+  scale: 0.98;
+}
+
+.reveal-ready .hero__stage[data-reveal].is-visible {
+  translate: none;
+  scale: none;
+}
+
+/* La línea del gráfico se dibuja cuando aparece el hero */
+.reveal-ready .hero__stage .mock-chart__line {
+  stroke-dashoffset: 1;
+  transition: stroke-dashoffset 1.6s var(--ease-out) 700ms;
+}
+
+.reveal-ready .hero__stage.is-visible .mock-chart__line {
+  stroke-dashoffset: 0;
+}
+
+/* Parallax sutil ligado al scroll, solo donde el navegador lo soporta. */
+@supports (animation-timeline: view()) {
+  .case__visual .app-mock {
+    animation: parallax-rise linear both;
+    animation-timeline: view();
+    animation-range: entry 0% cover 60%;
+  }
+
+  .web-dev__glow,
+  .contact__glow {
+    animation: parallax-glow linear both;
+    animation-timeline: view();
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+}
+
+@keyframes dialog-in {
+  from {
+    opacity: 0;
+    transform: translateY(16px) scale(0.98);
+  }
+}
+
+@keyframes sheet-in {
+  from {
+    transform: translateY(100%);
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes rotate {
+  to {
+    rotate: 360deg;
+  }
+}
+
+@keyframes float {
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes drift {
+  to {
+    transform: translate3d(-8%, 10%, 0) scale(1.1);
+  }
+}
+
+@keyframes dash {
+  to {
+    stroke-dashoffset: -20;
+  }
+}
+
+@keyframes pulse-flow {
+  from {
+    background-position: -40% 0;
+  }
+
+  to {
+    background-position: 140% 0;
+  }
+}
+
+@keyframes pulse-flow-y {
+  from {
+    background-position: 0 -40%;
+  }
+
+  to {
+    background-position: 0 140%;
+  }
+}
+
+@keyframes parallax-rise {
+  from {
+    translate: 0 40px;
+  }
+
+  to {
+    translate: 0 0;
+  }
+}
+
+@keyframes parallax-glow {
+  from {
+    translate: 0 -60px;
+  }
+
+  to {
+    translate: 0 60px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    transition-delay: 0ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .hero-visual [class*='depth-'] {
+    translate: none;
+  }
+
+  .funnel::after {
+    display: none;
+  }
+}
