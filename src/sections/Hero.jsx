@@ -1,38 +1,11 @@
-import { useEffect, useRef } from 'react'
 import { ArrowDown, ArrowUpRight } from 'lucide-react'
-import HeroVisual from './HeroVisual'
 import { hrefFor } from '../config/routes'
-import { useOpenContact } from '../lib/contact'
+import { whatsappUrl } from '../lib/whatsapp'
 
+const engineerHref = whatsappUrl()
+
+// Hero tipográfico: el mensaje es el protagonista y el fondo (grid + glow) solo acompaña.
 export default function Hero() {
-  const openContact = useOpenContact()
-  const stageRef = useRef(null)
-
-  // Parallax sutil con el puntero: solo en dispositivos con mouse y sin reduced
-  // motion. Se escriben variables CSS en un rAF; no hay re-render de React.
-  useEffect(() => {
-    const stage = stageRef.current
-    const fine = window.matchMedia('(hover: hover) and (pointer: fine)').matches
-    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches
-    if (!stage || !fine || reduce) return undefined
-
-    let frame = 0
-    const onMove = (event) => {
-      cancelAnimationFrame(frame)
-      frame = requestAnimationFrame(() => {
-        const x = event.clientX / window.innerWidth - 0.5
-        const y = event.clientY / window.innerHeight - 0.5
-        stage.style.setProperty('--px', x.toFixed(3))
-        stage.style.setProperty('--py', y.toFixed(3))
-      })
-    }
-    window.addEventListener('pointermove', onMove, { passive: true })
-    return () => {
-      cancelAnimationFrame(frame)
-      window.removeEventListener('pointermove', onMove)
-    }
-  }, [])
-
   return (
     <section id="inicio" className="hero" aria-labelledby="hero-title">
       <div className="hero__backdrop" aria-hidden="true">
@@ -41,35 +14,31 @@ export default function Hero() {
         <div className="hero__glow hero__glow--b" />
       </div>
 
-      <div className="container hero__layout">
-        <div className="hero__copy">
-          <p className="pill hero__pill" data-reveal>
-            <span className="pill__dot" aria-hidden="true" />
-            Ingeniería de software · Costa Rica
-          </p>
-          <h1 id="hero-title" data-reveal>
-            Tecnología que <em className="accent-tech">impulsa</em> empresas.
-          </h1>
-          <p className="hero__lede" data-reveal>
-            Diseñamos experiencias digitales, desarrollamos soluciones tecnológicas y ayudamos a las
-            empresas a crecer.
-          </p>
-          <div className="hero__actions" data-reveal>
-            <button
-              type="button"
-              className="button button--primary button--lg"
-              onClick={() => openContact()}
-            >
-              Impulsa tu empresa <ArrowUpRight aria-hidden="true" />
-            </button>
-            <a className="button button--ghost button--lg" href={hrefFor('servicios')}>
-              Conoce nuestros servicios <ArrowDown aria-hidden="true" />
-            </a>
-          </div>
-        </div>
-
-        <div className="hero__stage" ref={stageRef} data-reveal>
-          <HeroVisual />
+      <div className="container hero__content">
+        <p className="pill hero__pill" data-reveal>
+          <span className="pill__dot" aria-hidden="true" />
+          Ingeniería de software · Costa Rica
+        </p>
+        <h1 id="hero-title" data-reveal>
+          Tecnología que <em className="accent-tech">impulsa</em> empresas.
+        </h1>
+        <p className="hero__lede" data-reveal>
+          Diseñamos experiencias digitales, desarrollamos soluciones tecnológicas y ayudamos a las
+          empresas a crecer.
+        </p>
+        <div className="hero__actions" data-reveal>
+          <a
+            className="button button--primary button--lg"
+            href={engineerHref}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Impulsa tu empresa <ArrowUpRight aria-hidden="true" />
+            <span className="sr-only"> (abre WhatsApp en una pestaña nueva)</span>
+          </a>
+          <a className="button button--ghost button--lg" href={hrefFor('servicios')}>
+            Conoce nuestros servicios <ArrowDown aria-hidden="true" />
+          </a>
         </div>
       </div>
     </section>

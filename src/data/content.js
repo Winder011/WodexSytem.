@@ -47,13 +47,6 @@ export const PILLARS = [
   },
 ]
 
-// Disciplinas que orbitan alrededor de Wodex en el hero.
-export const ORBIT = [
-  { label: 'Web', icon: Globe },
-  { label: 'Marketing', icon: ChartNoAxesCombined },
-  { label: 'Software', icon: Code2 },
-]
-
 export const WEB_SERVICES = [
   {
     title: 'Landing pages',

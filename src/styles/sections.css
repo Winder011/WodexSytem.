@@ -1,9 +1,13 @@
 /* ================= HERO ================= */
+/* Composición tipográfica centrada: eyebrow, titular, descripción y CTAs.
+   El fondo (grid + glow) acompaña sin competir con el mensaje. */
 .hero {
   position: relative;
   isolation: isolate;
   margin-top: calc(var(--header-h) * -1);
-  padding: calc(var(--header-h) + clamp(3rem, 2rem + 5vw, 7rem)) 0 clamp(4rem, 3rem + 5vw, 7.5rem);
+  /* Depende del ancho y del alto: en pantallas bajas deja ver el inicio de Servicios. */
+  padding: calc(var(--header-h) + clamp(3rem, min(2.5rem + 6vw, 11vh), 8.5rem)) 0
+    clamp(3rem, min(2.5rem + 4vw, 9vh), 6rem);
   overflow: hidden;
 }
 
@@ -12,8 +16,8 @@
   z-index: -1;
   inset: 0;
   pointer-events: none;
-  mask-image: linear-gradient(#000 65%, transparent);
-  -webkit-mask-image: linear-gradient(#000 65%, transparent);
+  mask-image: linear-gradient(#000 60%, transparent);
+  -webkit-mask-image: linear-gradient(#000 60%, transparent);
 }
 
 .hero__grid {
@@ -22,9 +26,10 @@
   background-image:
     linear-gradient(rgb(157 180 224 / 0.06) 1px, transparent 1px),
     linear-gradient(90deg, rgb(157 180 224 / 0.06) 1px, transparent 1px);
+  background-position: center top;
   background-size: 64px 64px;
-  mask-image: radial-gradient(ellipse 80% 70% at 70% 30%, #000 20%, transparent 75%);
-  -webkit-mask-image: radial-gradient(ellipse 80% 70% at 70% 30%, #000 20%, transparent 75%);
+  mask-image: radial-gradient(ellipse 70% 75% at 50% 35%, #000 15%, transparent 72%);
+  -webkit-mask-image: radial-gradient(ellipse 70% 75% at 50% 35%, #000 15%, transparent 72%);
 }
 
 .hero__glow {
@@ -34,57 +39,60 @@
   will-change: transform;
 }
 
+/* Glow principal detrás del titular. */
 .hero__glow--a {
-  top: -15%;
-  right: -10%;
-  width: min(70vw, 820px);
+  top: -35%;
+  left: calc(50% - min(40vw, 460px));
+  width: min(80vw, 920px);
   aspect-ratio: 1;
-  background: radial-gradient(circle, rgb(47 107 237 / 0.45), transparent 65%);
+  background: radial-gradient(circle, rgb(47 107 237 / 0.4), transparent 65%);
   animation: drift 18s var(--ease-in-out) infinite alternate;
 }
 
 .hero__glow--b {
-  bottom: -30%;
+  bottom: -40%;
   left: -15%;
   width: min(60vw, 640px);
   aspect-ratio: 1;
-  background: radial-gradient(circle, rgb(63 200 236 / 0.22), transparent 65%);
+  background: radial-gradient(circle, rgb(63 200 236 / 0.16), transparent 65%);
   animation: drift 22s var(--ease-in-out) infinite alternate-reverse;
 }
 
-.hero__layout {
+.hero__content {
   display: grid;
-  grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
-  align-items: center;
-  gap: clamp(2.5rem, 1rem + 5vw, 5rem);
+  justify-items: center;
+  text-align: center;
 }
 
 .hero h1 {
-  max-width: 11ch;
-  margin-top: var(--space-6);
-  font-size: var(--fs-display);
+  max-width: 15ch;
+  margin-top: var(--space-8);
+  font-size: clamp(2.75rem, 1.2rem + 6.2vw, 7rem);
   font-weight: 600;
-  line-height: var(--lh-tight);
-  letter-spacing: -0.045em;
-}
-
-.hero h1 .accent-serif {
-  letter-spacing: -0.02em;
+  line-height: 0.98;
+  letter-spacing: -0.05em;
+  text-wrap: balance;
 }
 
 .hero__lede {
-  max-width: 34rem;
-  margin-top: var(--space-6);
+  max-width: 40rem;
+  margin-top: var(--space-8);
   color: var(--color-text-soft);
-  font-size: var(--fs-lead);
+  font-size: clamp(1.0625rem, 1rem + 0.4vw, 1.3125rem);
   line-height: 1.6;
 }
 
 .hero__actions {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: var(--space-3);
   margin-top: var(--space-10);
+}
+
+/* Transición Hero → Servicios: sin un vacío doble entre ambas secciones. */
+.hero + .section {
+  padding-top: clamp(3.5rem, 2.5rem + 4vw, 6rem);
 }
 
 /* ================= SERVICIOS ================= */
@@ -408,8 +416,8 @@ html:not(.reveal-ready) .timeline__progress {
 
 .contact__layout {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
-  align-items: start;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+  align-items: center;
   gap: clamp(2.5rem, 1rem + 5vw, 5rem);
 }
 
@@ -424,182 +432,6 @@ html:not(.reveal-ready) .timeline__progress {
   margin-top: var(--space-6);
   color: var(--color-text-soft);
   font-size: var(--fs-lead);
-}
-
-.contact__panel {
-  padding: clamp(1.25rem, 0.8rem + 2vw, 2.5rem);
-  border: var(--border);
-  border-radius: var(--radius-xl);
-  background: var(--color-surface-glass);
-  box-shadow: var(--shadow-lg);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-}
-
-/* ================= HERO: órbita Wodex · Web · Marketing · Software ================= */
-.hero__stage {
-  --px: 0;
-  --py: 0;
-  position: relative;
-}
-
-.hero-orbit {
-  --r: 38cqw;
-  --spin: 80s;
-  position: relative;
-  container-type: inline-size;
-  width: min(100%, 540px);
-  aspect-ratio: 1;
-  margin-left: auto;
-}
-
-.hero-orbit__ring {
-  position: absolute;
-  border-radius: 50%;
-}
-
-.hero-orbit__ring--outer {
-  inset: 0;
-  border: 1px dashed rgb(157 180 224 / 0.16);
-  animation: rotate 120s linear infinite;
-}
-
-.hero-orbit__ring--mid {
-  inset: 12%;
-  border: 1px solid rgb(91 147 255 / 0.16);
-  box-shadow: inset 0 0 80px -20px rgb(47 107 237 / 0.35);
-}
-
-.hero-orbit__satellite {
-  position: absolute;
-  top: -4px;
-  left: calc(50% - 4px);
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: var(--color-cyan);
-  box-shadow: 0 0 14px 2px rgb(63 200 236 / 0.7);
-}
-
-.hero-orbit__satellite--b {
-  top: auto;
-  bottom: -4px;
-  background: var(--color-brand-bright);
-  box-shadow: 0 0 14px 2px rgb(91 147 255 / 0.7);
-}
-
-/* Barrido tipo radar dentro de la órbita principal. */
-.hero-orbit__sweep {
-  position: absolute;
-  inset: 12%;
-  border-radius: 50%;
-  background: conic-gradient(from 0deg, transparent 0 290deg, rgb(91 147 255 / 0.22) 360deg);
-  mask-image: radial-gradient(circle, #000 35%, transparent 71%);
-  -webkit-mask-image: radial-gradient(circle, #000 35%, transparent 71%);
-  animation: rotate 10s linear infinite;
-}
-
-.hero-orbit__spin {
-  position: absolute;
-  inset: 0;
-  translate: calc(var(--px) * 18px) calc(var(--py) * 14px);
-  transition: translate 600ms var(--ease-out);
-  animation: rotate var(--spin) linear infinite;
-}
-
-.hero-orbit__links {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  overflow: visible;
-}
-
-.hero-orbit__links line {
-  stroke: rgb(157 180 224 / 0.2);
-  stroke-width: 1;
-}
-
-.hero-orbit__links .hero-orbit__pulse {
-  stroke: var(--color-cyan);
-  stroke-width: 2;
-  stroke-linecap: round;
-  stroke-dasharray: 12 88;
-  filter: drop-shadow(0 0 4px rgb(63 200 236 / 0.9));
-  animation: pulse-line 3.6s var(--ease-in-out) infinite;
-}
-
-.hero-orbit__node {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%) rotate(var(--a)) translateX(var(--r)) rotate(calc(var(--a) * -1));
-}
-
-/* Contrarrotación: las etiquetas giran con la órbita pero siempre quedan derechas. */
-.hero-orbit__chip {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--space-2);
-  padding: 0.6rem 1rem;
-  border: var(--border-strong);
-  border-radius: var(--radius-pill);
-  background: var(--color-surface-glass);
-  font-size: var(--fs-sm);
-  font-weight: 600;
-  white-space: nowrap;
-  box-shadow: var(--shadow);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  animation: rotate var(--spin) linear infinite reverse;
-}
-
-.hero-orbit__chip svg {
-  width: 16px;
-  height: 16px;
-  color: var(--color-brand-bright);
-}
-
-.hero-orbit__core {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  display: grid;
-  width: 30%;
-  aspect-ratio: 1;
-  place-content: center;
-  justify-items: center;
-  gap: var(--space-2);
-  border: var(--border-strong);
-  border-radius: 50%;
-  background:
-    radial-gradient(circle at 50% 30%, rgb(47 107 237 / 0.4), transparent 70%), var(--color-surface);
-  box-shadow: var(--shadow-glow);
-  transform: translate(-50%, -50%);
-  translate: calc(var(--px) * -10px) calc(var(--py) * -10px);
-  transition: translate 600ms var(--ease-out);
-}
-
-.hero-orbit__core img {
-  width: 40%;
-  height: auto;
-}
-
-.hero-orbit__name {
-  color: var(--color-muted);
-  font-family: var(--font-mono);
-  font-size: var(--fs-xs);
-  letter-spacing: var(--tracking-label);
-  text-transform: uppercase;
-}
-
-.hero-orbit__halo {
-  position: absolute;
-  inset: -1px;
-  border: 1px solid var(--color-brand-bright);
-  border-radius: 50%;
-  animation: halo 3.2s var(--ease-out) infinite;
-  pointer-events: none;
 }
 
 /* ================= LO QUE CUIDAMOS ================= */
@@ -819,7 +651,6 @@ html:not(.reveal-ready) .timeline__progress {
 }
 
 .engineer-card {
-  margin-top: var(--space-10);
   padding: clamp(1.25rem, 1rem + 1vw, 1.75rem);
   border: var(--border);
   border-radius: var(--radius-xl);
@@ -887,16 +718,6 @@ html:not(.reveal-ready) .timeline__progress {
   color: var(--color-brand-bright);
 }
 
-.contact__panel-title {
-  font-size: var(--fs-h3);
-}
-
-.contact__panel-copy {
-  margin: var(--space-2) 0 var(--space-6);
-  color: var(--color-muted);
-  font-size: var(--fs-sm);
-}
-
 /* ================= RESPONSIVE ================= */
 
 /* Laptop */
@@ -914,19 +735,6 @@ html:not(.reveal-ready) .timeline__progress {
 
 /* Tablet */
 @media (max-width: 1023px) {
-  .hero__layout {
-    grid-template-columns: 1fr;
-  }
-
-  .hero h1 {
-    max-width: 13ch;
-  }
-
-  .hero-orbit {
-    width: min(100%, 460px);
-    margin-inline: auto;
-  }
-
   .pillars {
     grid-template-columns: 1fr;
   }
@@ -1050,20 +858,6 @@ html:not(.reveal-ready) .timeline__progress {
 
 /* Móvil */
 @media (max-width: 479px) {
-  .hero-orbit {
-    --r: 37cqw;
-  }
-
-  .hero-orbit__chip {
-    padding: 0.45rem 0.75rem;
-    font-size: var(--fs-xs);
-  }
-
-  .hero-orbit__chip svg {
-    width: 13px;
-    height: 13px;
-  }
-
   .web-services {
     grid-template-columns: 1fr;
   }

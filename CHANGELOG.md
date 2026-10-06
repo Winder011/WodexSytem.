@@ -1,5 +1,19 @@
 # Changelog
 
+## 2.2.0 — 2026-10-06
+
+### Cambiado
+
+- Hero tipográfico y centrado: eyebrow, «Tecnología que impulsa empresas.», descripción y CTAs, con
+  altura que deja ver el inicio de Servicios.
+- Todos los CTA comerciales abren WhatsApp en una pestaña nueva; «Hablar con un ingeniero» pasa a
+  «Hablemos de tu proyecto».
+
+### Eliminado
+
+- Órbita animada del hero (Wodex · Web · Marketing · Software) con su CSS, keyframes y parallax.
+- Modal y formulario de contacto (Web3Forms) con sus estilos y configuración.
+
 ## 2.1.0 — 2026-10-01
 
 Enfoque en tecnología e ingeniería: menos secciones y mejor jerarquía.

@@ -51,7 +51,7 @@ export default function Footer() {
           <ul className="site-footer__contact">
             <li>
               <a href={whatsappUrl()} target="_blank" rel="noopener noreferrer">
-                <WhatsAppIcon /> Hablar con un ingeniero
+                <WhatsAppIcon /> Hablemos de tu proyecto
               </a>
             </li>
             <li>

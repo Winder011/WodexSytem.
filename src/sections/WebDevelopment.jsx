@@ -1,10 +1,10 @@
 import { ArrowUpRight } from 'lucide-react'
 import { WEB_SERVICES } from '../data/content'
-import { useOpenContact } from '../lib/contact'
+import { whatsappUrl } from '../lib/whatsapp'
+
+const webHref = whatsappUrl({ projectType: 'Página web' })
 
 export default function WebDevelopment() {
-  const openContact = useOpenContact()
-
   return (
     <section id="desarrollo-web" className="section web-dev" aria-labelledby="webdev-title">
       <div className="web-dev__glow" aria-hidden="true" />
@@ -21,13 +21,15 @@ export default function WebDevelopment() {
               Sitios y plataformas que explican lo que haces, generan confianza y facilitan que te
               contacten. Con la misma ingeniería que usamos para construir software.
             </p>
-            <button
-              type="button"
+            <a
               className="button button--primary button--lg"
-              onClick={() => openContact('Página web')}
+              href={webHref}
+              target="_blank"
+              rel="noopener noreferrer"
             >
               Quiero mi página web <ArrowUpRight aria-hidden="true" />
-            </button>
+              <span className="sr-only"> (abre WhatsApp en una pestaña nueva)</span>
+            </a>
           </div>
         </div>
 

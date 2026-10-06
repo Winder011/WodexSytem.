@@ -35,17 +35,6 @@
   --delay: 320ms;
 }
 
-.reveal-ready .hero__stage[data-reveal] {
-  --delay: 200ms;
-  translate: 0 24px;
-  scale: 0.98;
-}
-
-.reveal-ready .hero__stage[data-reveal].is-visible {
-  translate: none;
-  scale: none;
-}
-
 /* Parallax sutil ligado al scroll, solo donde el navegador lo soporta. */
 @supports (animation-timeline: view()) {
   .web-dev__glow,
@@ -55,69 +44,9 @@
   }
 }
 
-@keyframes fade-in {
-  from {
-    opacity: 0;
-  }
-}
-
-@keyframes fade-up {
-  from {
-    opacity: 0;
-    transform: translateY(6px);
-  }
-}
-
-@keyframes dialog-in {
-  from {
-    opacity: 0;
-    transform: translateY(16px) scale(0.98);
-  }
-}
-
-@keyframes sheet-in {
-  from {
-    transform: translateY(100%);
-  }
-}
-
-@keyframes spin {
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@keyframes rotate {
-  to {
-    rotate: 360deg;
-  }
-}
-
-@keyframes float {
-  50% {
-    transform: translateY(-10px);
-  }
-}
-
 @keyframes drift {
   to {
     transform: translate3d(-8%, 10%, 0) scale(1.1);
-  }
-}
-
-@keyframes dash {
-  to {
-    stroke-dashoffset: -20;
-  }
-}
-
-@keyframes pulse-line {
-  from {
-    stroke-dashoffset: 12;
-  }
-
-  to {
-    stroke-dashoffset: -100;
   }
 }
 
@@ -130,18 +59,6 @@
 @keyframes ring-spin {
   to {
     --ring-angle: 360deg;
-  }
-}
-
-@keyframes halo {
-  from {
-    opacity: 0.55;
-    scale: 1;
-  }
-
-  to {
-    opacity: 0;
-    scale: 1.55;
   }
 }
 
@@ -180,17 +97,6 @@
     transition-duration: 0.01ms !important;
     transition-delay: 0ms !important;
     scroll-behavior: auto !important;
-  }
-
-  .hero-orbit__pulse,
-  .hero-orbit__sweep,
-  .hero-orbit__halo {
-    display: none;
-  }
-
-  .hero-orbit__spin,
-  .hero-orbit__core {
-    translate: none;
   }
 
   .accent-tech::after {

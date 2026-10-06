@@ -1,7 +1,7 @@
 import { SITE } from '../config/site'
 
 const ENGINEER_MESSAGE =
-  'Hola, me gustaría hablar con un ingeniero de Wodex System sobre un proyecto.'
+  'Hola, me gustaría hablar con un ingeniero de Wodex System sobre un proyecto'
 
 // Arma el mensaje con los datos que la persona ya escribió; los campos vacíos se omiten.
 // Sin datos, se usa el mensaje directo para hablar con un ingeniero.

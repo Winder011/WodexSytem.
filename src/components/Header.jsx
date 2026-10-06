@@ -3,13 +3,14 @@ import { ArrowUpRight, Menu, X } from 'lucide-react'
 import Brand from './Brand'
 import { NAV } from '../config/routes'
 import { useActiveSection } from '../hooks/useActiveSection'
-import { useOpenContact } from '../lib/contact'
+import { whatsappUrl } from '../lib/whatsapp'
+
+const engineerHref = whatsappUrl()
 
 export default function Header() {
   const [open, setOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
   const active = useActiveSection()
-  const openContact = useOpenContact()
   const toggleRef = useRef(null)
   const headerRef = useRef(null)
 
@@ -69,25 +70,27 @@ export default function Header() {
               </li>
             ))}
           </ul>
-          <button
-            type="button"
+          <a
             className="button button--primary site-nav__cta"
-            onClick={() => {
-              close()
-              openContact()
-            }}
+            href={engineerHref}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={close}
           >
             Hablemos de tu proyecto <ArrowUpRight aria-hidden="true" />
-          </button>
+            <span className="sr-only"> (abre WhatsApp en una pestaña nueva)</span>
+          </a>
         </nav>
 
-        <button
-          type="button"
+        <a
           className="button button--primary site-header__cta"
-          onClick={() => openContact()}
+          href={engineerHref}
+          target="_blank"
+          rel="noopener noreferrer"
         >
           Hablemos de tu proyecto <ArrowUpRight aria-hidden="true" />
-        </button>
+          <span className="sr-only"> (abre WhatsApp en una pestaña nueva)</span>
+        </a>
 
         <button
           ref={toggleRef}

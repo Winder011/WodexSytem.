@@ -1,7 +1,7 @@
 import { ArrowRight } from 'lucide-react'
 import SectionHeading from '../components/SectionHeading'
 import { PILLARS } from '../data/content'
-import { useOpenContact } from '../lib/contact'
+import { whatsappUrl } from '../lib/whatsapp'
 
 // Sigue el puntero para el brillo de la tarjeta; solo escribe variables CSS.
 const trackPointer = (event) => {
@@ -11,8 +11,6 @@ const trackPointer = (event) => {
 }
 
 export default function Services() {
-  const openContact = useOpenContact()
-
   return (
     <section id="servicios" className="section" aria-labelledby="services-title">
       <div className="container">
@@ -53,13 +51,15 @@ export default function Services() {
                   <li key={item}>{item}</li>
                 ))}
               </ul>
-              <button
-                type="button"
+              <a
                 className="text-button"
-                onClick={() => openContact(projectType)}
+                href={whatsappUrl({ projectType })}
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 Consultar sobre {label.toLowerCase()} <ArrowRight aria-hidden="true" />
-              </button>
+                <span className="sr-only"> (abre WhatsApp en una pestaña nueva)</span>
+              </a>
             </li>
           ))}
         </ul>

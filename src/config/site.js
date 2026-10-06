@@ -8,14 +8,3 @@ export const SITE = {
   whatsappNumber: '50662807752',
   instagram: 'https://www.instagram.com/wodexsystem/',
 }
-
-export const PROJECT_TYPES = [
-  'Página web',
-  'Landing page',
-  'Tienda online',
-  'Marketing digital',
-  'Software a medida',
-  'Automatización',
-  'Integraciones',
-  'Otro',
-]

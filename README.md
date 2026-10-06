@@ -30,40 +30,32 @@ npm run dev            # http://localhost:54077
 
 ## Variables de entorno
 
-| Variable                    | Uso                                                                                  |
-| --------------------------- | ------------------------------------------------------------------------------------ |
-| `VITE_SITE_URL`             | URL pública sin barra final. Alimenta canonical, Open Graph, schema, sitemap y robots |
-| `VITE_WEB3FORMS_ACCESS_KEY` | Clave de [Web3Forms](https://web3forms.com) para recibir el formulario por correo     |
+| Variable        | Uso                                                                                   |
+| --------------- | ------------------------------------------------------------------------------------- |
+| `VITE_SITE_URL` | URL pública sin barra final. Alimenta canonical, Open Graph, schema, sitemap y robots |
 
-En Cloudflare Pages (u otro hosting) defínelas en la configuración del proyecto **antes** del build:
-Vite las incrusta en tiempo de compilación.
+En Cloudflare Pages (u otro hosting) defínela en la configuración del proyecto **antes** del build:
+Vite la incrusta en tiempo de compilación.
 
-### Formulario de contacto
+### Contacto
 
-El formulario ofrece dos vías:
-
-1. **Correo**: se envía a Web3Forms, que reenvía el mensaje al correo con el que se creó la access
-   key. Esa clave es pública por diseño (solo identifica el buzón de destino), por lo que no se
-   exponen credenciales SMTP ni claves privadas. Incluye un campo trampa anti-spam (`botcheck`).
-   Si la clave no está configurada, el formulario lo indica y sugiere WhatsApp.
-2. **WhatsApp**: abre WhatsApp con un mensaje armado a partir de los datos escritos. El número se
-   configura en `src/config/site.js` (`whatsappNumber`) y nunca se muestra escrito en la interfaz.
-
-Para activar el correo: entra a web3forms.com, escribe el correo de destino, copia la access key y
-guárdala en `VITE_WEB3FORMS_ACCESS_KEY`.
+Todos los CTA comerciales (hero, header, servicios, desarrollo web, contacto y botón flotante)
+abren WhatsApp en una pestaña nueva con un mensaje prellenado. No hay formulario ni modal. El
+número se configura en `src/config/site.js` (`whatsappNumber`) y nunca se muestra escrito en la
+interfaz.
 
 ## Estructura
 
 ```
 src/
-  config/      site.js (datos de la marca, WhatsApp, tipos de proyecto)
+  config/      site.js (datos de la marca y WhatsApp)
                routes.js (rutas actuales y futuras; también lo lee vite.config.js)
   data/        content.js (textos e íconos de cada sección)
-  components/  piezas compartidas: Header, Footer, Contact (modal), ContactForm…
+  components/  piezas compartidas: Header, Footer, WhatsAppFab, Brand…
   sections/    secciones de la página: Hero, Services, WebDevelopment, Quality, Process…
   pages/       Home.jsx compone las secciones
   hooks/       useReveal (animaciones al hacer scroll), useActiveSection
-  lib/         envío de correo, armado del mensaje de WhatsApp, contexto del modal
+  lib/         armado de los enlaces y mensajes de WhatsApp
   styles/      tokens.css → base.css → components.css → sections.css → motion.css
 public/        favicon, apple-touch-icon, og-image.png (1200×630)
 ```
